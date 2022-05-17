@@ -3,7 +3,9 @@ import {View, Text, Image, ImageBackground,TouchableOpacity} from 'react-native'
 import {TextInput,ScrollView,} from 'react-native-gesture-handler'
 import { LinearGradient } from 'expo-linear-gradient'
 import Icon from 'react-native-vector-icons/FontAwesome';
+import MaIcon from 'react-native-vector-icons/MaterialIcons';
 import MIcon from 'react-native-vector-icons/MaterialCommunityIcons';
+import Fontisto from 'react-native-vector-icons/Fontisto';
 
 const Home = ({navigation}) => {
     return(
@@ -23,13 +25,13 @@ const Home = ({navigation}) => {
                     style={{
                         height:10,
                         width:20,
-                        marginTop:50
+                        marginTop:25
                     }}
                />
                <View style={{
                    flexDirection:"row",
                    alignItems:"center",
-                   marginTop:25,
+                   marginTop:5,
                    width:"100%"
                }}>
                    <View style={{width:"50%"}}>
@@ -41,7 +43,7 @@ const Home = ({navigation}) => {
                    </View>
                    <View style={{width:"50%",alignItems:"flex-end"}}>
                         <Image
-                           source={require('../assets/sehat-markaz.png')}
+                           source={require('../assets/sehatblacklog.png')}
                             style={{height:80,width:80}}
                         />
                    </View>
@@ -56,71 +58,7 @@ const Home = ({navigation}) => {
                 marginTop:-45
             }}
            >
-               {/* <View style={{
-                   backgroundColor:"#FFF",
-                   paddingVertical:8,
-                   paddingHorizontal:20,
-                   marginHorizontal:20,
-                   borderRadius:15,
-                   marginTop:25,
-                   flexDirection:"row",
-                   alignItems:"center"
-               }}>
-                   <TextInput
-                        placeholder="Search"
-                        placeholderTextColor="#b1e5d3"
-                        style={{
-                            fontWeight:"bold",
-                            fontSize:18,
-                            width:260
-                        }}
-                   />
-                   <Image
-                   // source={require('../images/3.png')}
-                    style={{height:20,width:20}}
-                   />
-               </View> */}
             </LinearGradient>
-
-
-               {/* <View style={{
-                   flexDirection:"row",
-                   paddingHorizontal:20,
-                   width:"100%",
-                   alignItems:"center"
-               }}>
-                   <View style={{width:"50%"}}>
-                        <Text style={{
-                            fontWeight:"bold",
-                            fontSize:17,
-                            color:"#585a61"
-                        }}>Recommended</Text>
-                        <View style={{
-                            height:4,
-                            backgroundColor:"#b1e5d3",
-                            width:115,
-                            marginTop:-5
-                        }}>
-
-                        </View>
-
-                   </View>
-                   <View style={{width:"50%", alignItems:"flex-end"}}>
-                        <View style={{
-                            backgroundColor:"#00a46c",
-                            paddingHorizontal:20,
-                            paddingVertical:5,
-                            borderRadius:15
-                        }}>
-                            <Text style={{
-                                fontWeight:"bold",
-                                fontSize:13,
-                                color:"#FFF"
-                            }}>More</Text>
-                        </View>
-                   </View>
-               </View> */}
-
             
         
                 <ScrollView 
@@ -155,11 +93,7 @@ const Home = ({navigation}) => {
                     }}
                     onPress={()=>navigation.navigate("Profile")}
                     >
-                        <Icon name="user-md" size= {70} color= '#43ba63' />
-                        {/*<FontAwesomeIcon icon="fa-solid fa-user-doctor" />
-                         <Image
-                           source={require('../images/4.png')}
-                        /> */}
+                        <Icon name="user" size= {70} color= '#43ba63' />
                         <View style={{
                             flexDirection:"row",
                             paddingTop:10,
@@ -169,20 +103,7 @@ const Home = ({navigation}) => {
                                 fontWeight:"bold",
                                 alignItems: "center"
                             }}>Profile</Text>
-                            {/* <Text style={{
-                                fontWeight:"bold",
-                                color:"#00a46c",
-                                paddingLeft:35
-                            }}>$400</Text> */}
                         </View>
-                        {/* <Text style={{
-                            paddingHorizontal:10,
-                            fontWeight:"bold",
-                            color:"#b1e5d3",
-                            paddingTop:3
-                        }}>
-                            RUSSIA
-                        </Text> */}
                     </TouchableOpacity>
 
                     <TouchableOpacity 
@@ -200,9 +121,6 @@ const Home = ({navigation}) => {
                         }}
                     >
                         <Icon name="bell-o" size= {70} color= '#43ba63'  />
-                        {/* <Image
-                            source={require('../images/5.png')}
-                        /> */}
                         <View style={{
                             flexDirection:"row",
                             paddingTop:10,
@@ -211,26 +129,13 @@ const Home = ({navigation}) => {
                             <Text style={{
                                 fontWeight:"bold"
                             }}>Notification</Text>
-                            {/* <Text style={{
-                                fontWeight:"bold",
-                                color:"#00a46c",
-                                paddingLeft:45
-                            }}>$400</Text> */}
                         </View>
-                        {/* <Text style={{
-                            paddingHorizontal:10,
-                            fontWeight:"bold",
-                            color:"#b1e5d3",
-                            paddingTop:3
-                        }}>
-                            RUSSIA
-                        </Text> */}
                     </TouchableOpacity>
                 </View>
 
                 <View style = {{flexDirection: 'row',justifyContent:'space-evenly'}}>
                     <TouchableOpacity 
-                        onPress={()=>navigation.navigate("Detail")}
+                        onPress={()=>navigation.navigate("ViewMed")}
                         style={{
                             height:150,
                             elevation:2,
@@ -243,11 +148,8 @@ const Home = ({navigation}) => {
                             width:160
                         }}
                     >
-                        <MIcon name="android-messages" size= {70} color= '#43ba63'  />
-                     {/*   <FontAwesomeIcon icon="fa-regular fa-messages" />
-                         <Image
-                            source={require('../images/4.png')}
-                        /> */}
+                        <Fontisto name="pills" size= {70} color= '#43ba63' />
+                        {/* <MIcon name="android-messages" size= {70} color= '#43ba63'  /> */}
                         <View style={{
                             flexDirection:"row",
                             paddingTop:10,
@@ -255,21 +157,8 @@ const Home = ({navigation}) => {
                         }}>
                             <Text style={{
                                 fontWeight:"bold"
-                            }}>Messages</Text>
-                            {/* <Text style={{
-                                fontWeight:"bold",
-                                color:"#00a46c",
-                                paddingLeft:35
-                            }}>$400</Text> */}
+                            }}>Medicine</Text>
                         </View>
-                        {/* <Text style={{
-                            paddingHorizontal:10,
-                            fontWeight:"bold",
-                            color:"#b1e5d3",
-                            paddingTop:3
-                        }}>
-                            RUSSIA
-                        </Text> */}
                     </TouchableOpacity>
 
                     <View 
@@ -286,11 +175,61 @@ const Home = ({navigation}) => {
                             width:160
                         }}
                     >
+                        <MaIcon name="pending-actions" size= {70} color= '#43ba63'  />
+                        <View style={{
+                            flexDirection:"row",
+                            paddingTop:10,
+                            paddingHorizontal:10
+                        }}>
+                            <Text style={{
+                                fontWeight:"bold"
+                            }}>Orders</Text>
+                        </View>
+                    </View>
+                </View>
+                <View style = {{flexDirection: 'row',justifyContent:'space-evenly'}}>
+                    {/* <TouchableOpacity 
+                        onPress={()=>navigation.navigate("ViewMed")}
+                        style={{
+                            height:150,
+                            elevation:2,
+                            backgroundColor:"#FFF",
+                            alignItems:'center',
+                            justifyContent:'center',
+                            marginTop:20,
+                            borderRadius:15,
+                            marginBottom:10,
+                            width:160
+                        }}
+                    >
+                        <Fontisto name="pills" size= {70} color= '#43ba63' />
+                        {/* <MIcon name="android-messages" size= {70} color= '#43ba63'  /> 
+                        <View style={{
+                            flexDirection:"row",
+                            paddingTop:10,
+                            paddingHorizontal:10
+                        }}>
+                            <Text style={{
+                                fontWeight:"bold"
+                            }}>Medicine</Text>
+                        </View>
+                    </TouchableOpacity> */}
+
+                    <View 
+                        // onPress={()=>navigation.navigate("Detail")}
+                        style={{
+                            height:150,
+                            elevation:2,
+                            backgroundColor:"#FFF",
+                            alignItems:'center',
+                            justifyContent:'center',
+                            marginTop:20,
+                            borderRadius:15,
+                            marginBottom:10,
+                            width:160
+                        }}
+                    >
                         <MIcon name="logout" size= {70} color= '#43ba63'  />
-                        {/*<FontAwesomeIcon icon="fa-regular fa-right-from-bracket" />
-                         <Image
-                            source={require('../images/5.png')}
-                        /> */}
                         <View style={{
                             flexDirection:"row",
                             paddingTop:10,
@@ -299,20 +238,7 @@ const Home = ({navigation}) => {
                             <Text style={{
                                 fontWeight:"bold"
                             }}>Logout</Text>
-                            {/* <Text style={{
-                                fontWeight:"bold",
-                                color:"#00a46c",
-                                paddingLeft:45
-                            }}>$400</Text> */}
                         </View>
-                        {/* <Text style={{
-                            paddingHorizontal:10,
-                            fontWeight:"bold",
-                            color:"#b1e5d3",
-                            paddingTop:3
-                        }}>
-                            RUSSIA
-                        </Text> */}
                     </View>
                 </View>
 

@@ -35,7 +35,7 @@ const ProfileScreen = ({navigation}) => {
     <SafeAreaView style={styles.container}>
 
       <View style={styles.usernameSection}>
-        <View style={{ marginTop: 2}}>
+        <View >
           <Avatar.Image 
             // source={{uri: 'https://api.adorable.io/avatars/80/abott@adorable.png',}}
               source={require('../assets/kami.jpeg')}
@@ -51,12 +51,12 @@ const ProfileScreen = ({navigation}) => {
             {/* <Caption style={styles.caption}>@j_doe</Caption> */}
           </View>
         </View>
-        <View>
+        {/* <View>
         <TouchableOpacity style={styles.commandButton} 
           onPress={()=>navigation.navigate("EditProfile")}>
           <Text style={styles.panelButtonTitle}>Edit Profile</Text>
         </TouchableOpacity>
-        </View>
+        </View> */}
       </View>
 
       <View style={styles.userInfoSection}>
@@ -77,6 +77,12 @@ const ProfileScreen = ({navigation}) => {
           <Icon name="email" color="#43ba63" size={28}/>
           </View>
           <Text style={styles.userText}>john_doe@email.com</Text>
+        </View>
+        <View>
+        <TouchableOpacity style={styles.commandButton} 
+          onPress={()=>navigation.navigate("EditProfile")}>
+          <Text style={styles.panelButtonTitle}>Edit Profile</Text>
+        </TouchableOpacity>
         </View>
       </View>
 
@@ -135,13 +141,14 @@ export default ProfileScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop:'4%'
+    backgroundColor:'#ffff'
   },
   userInfoSection: {
     paddingHorizontal: 20,
     marginBottom: 25,
   },
   usernameSection:{
+    marginTop:'4%',
     paddingHorizontal: 30,
     marginBottom: 25,
     alignItems:'center',

@@ -96,7 +96,7 @@ const CartScreen = ({navigation}) => {
     );
   };
   return (
-    <SafeAreaView style={{backgroundColor: 'white', flex: 1,marginTop:25}}>
+    <SafeAreaView style={{backgroundColor: 'white', flex: 1}}>
       <View style={style.header}>
         <Icon name="arrow-back-ios" size={28} onPress={navigation.goBack} />
         <Text style={{fontSize: 20, fontWeight: 'bold'}}>Cart</Text>

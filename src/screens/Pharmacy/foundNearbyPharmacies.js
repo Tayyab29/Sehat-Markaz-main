@@ -113,7 +113,7 @@ export default function FoundNearbyPharmacies({ navigation, route }) {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: "7%",
+    // marginTop: "7%",
     flex: 1,
   },
   head: {

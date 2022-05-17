@@ -51,7 +51,7 @@ export default function Userdetailphar({ navigation, route }) {
                 label="Address"
                 returnKeyType="next"
                 value={address.value}
-                onChangeText={text => setaddress({ value: text, error: '' })}
+                onChangeText={text => setAddress({ value: text, error: '' })}
                 error={!!address.error}
                 errorText={address.error}
                 style = {styles.txtin}

@@ -294,10 +294,10 @@ export default function PharmacyManagementProfile({ route }) {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: "10%",
     marginHorizontal: 10,
   },
   uploadImageContainer: {
+    marginTop: '5%',
     alignItems: "center",
     justifyContent: "center",
   },
@@ -377,7 +377,7 @@ const styles = StyleSheet.create({
   commandButton: {
     padding: 15,
     borderRadius: 10,
-    backgroundColor: "#FF6347",
+    backgroundColor: "#43ba63",
     alignItems: "center",
     marginTop: 10,
   },

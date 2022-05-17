@@ -59,7 +59,8 @@ import StartPharmacyManagementPortal from "../../Portals/Pharmacy Management Por
 import PharmacyManagementProfile from "../../Portals/Pharmacy Management Portal/pharmacyManagementProfile";
 import Home from "../../Portals/Pharmacy Management Portal/Home";
 import ProfileScreen from "../../Portals/Pharmacy Management Portal/Profilephar";
-import EditProfileScreen from "../../Portals/Pharmacy Management Portal/EditProfile";
+import ViewMed from "../../Portals/Pharmacy Management Portal/ViewMed";
+import AddMed from "../../Portals/Pharmacy Management Portal/addMed";
 
 //For Blood Donor Portal
 import StartBloodDonorPortal from "../../Portals/Blood Donor Portal/start";
@@ -76,6 +77,9 @@ import StartAmbulanceServiceProvider from "../../Portals/Ambulance Service Provi
 import AmbulanceServiceProviderProfile from "../../Portals/Ambulance Service Provider Portal/ambServiceProviderProfile";
 import HomeAmb from "../../Portals/Ambulance Service Provider Portal/HomeAmb";
 import MyAppoint from "./myappoint";
+
+
+
 
 const Stack = createStackNavigator();
 
@@ -437,6 +441,16 @@ const StackNav = ({ navigation }) => {
               name="Profile"
               component={ProfileScreen}
               options={{ headerShown: true }}
+            />
+            <Stack.Screen
+              name="ViewMed"
+              component={ViewMed}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="addMed"
+              component={AddMed}
+              options={{ headerShown: false }}
             />
           </Stack.Group>
 

@@ -38,10 +38,9 @@ const MedicineDetails = ({navigation, route}) => {
     <SafeAreaView
       style={{
         flex: 1,
-        marginTop: 20,
         backgroundColor: 'white',
       }}>
-    <ScrollView>
+
       <View style={style.header}>
         <Icon name="arrow-back" size={28} onPress={() => navigation.goBack()} />
         <TouchableOpacity style={{ flexDirection: "row" }}
@@ -61,6 +60,7 @@ const MedicineDetails = ({navigation, route}) => {
           </View>
         </TouchableOpacity>
       </View>
+      <ScrollView>
       <View style={style.imageContainer}>
         <Image source={med.img} style={{resizeMode: 'contain', flex: 1}} />
       </View>

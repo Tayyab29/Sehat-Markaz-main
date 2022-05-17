@@ -3,8 +3,8 @@
   "expoServerPort": 19000,
   "packagerPort": 19000,
   "packagerPid": null,
-  "expoServerNgrokUrl": "https://v3-ufd.tayyab-shah.sehat-markaz-main.exp.direct",
-  "packagerNgrokUrl": "https://v3-ufd.tayyab-shah.sehat-markaz-main.exp.direct",
-  "ngrokPid": 14300,
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null,
   "webpackServerPort": null
 }
