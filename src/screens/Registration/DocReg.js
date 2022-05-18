@@ -1,144 +1,85 @@
 import React, { useState } from 'react';
 import {ScrollView, View, StyleSheet, TouchableOpacity,Alert, Modal, Image, StatusBar } from 'react-native';
 import { Text } from 'react-native-paper';
-import Logo from '../components/Logo';
 import Header from '../components/Header';
 import Button from '../components/Button';
 import TextInput from '../components/TextInput';
-import Dropdown from '../components/Dropdown';
 import { theme } from '../core/theme';
-import { emailValidator } from '../helpers/emailValidator';
-import { passwordValidator } from '../helpers/passwordValidator';
-import { nameValidator } from '../helpers/nameValidator';
 import {emptyfield } from '../helpers/emptyfield';
-import * as ImagePicker from 'expo-image-picker';
-// import Firebase from "../firebase";
-// const auth = Firebase.auth();
+// import { phoneValidator } from '../helpers/phoneValidator';
+import { RadioButton } from 'react-native-paper';
+
+
 
 const DocReg = ( {navigation}) => {
- const [name, setName] = useState({ value: '', error: '' });
-  const [email, setEmail] = useState({ value: '', error: '' });
-  const [password, setPassword] = useState({ value: '', error: '' });
-  const [empty, setEmpty] = useState({ value: '', error: '' });
-  const [phone, setPhone] = useState({ value: '', error: '' });
+ const [qual, setQual] = useState({ value: '', error: '' });
+  const [age, setAge] = useState({ value: '', error: '' });
+  const [ser, setSer] = useState({ value: '', error: '' });
+  // const [phone, setPhone] = useState({ value: '', error: '' });
   const [spec, setSpec] = useState({ value: '', error: '' });
   const [exp, setExp] = useState({ value: '', error: '' });
-  const [image, setImage] = useState();
-  const [modalVisible, setModalVisible] = useState(false);
+  const [checked, setChecked] = React.useState('public');
 
   const _onSignUpPressed = () => {
-    const nameError = nameValidator(name.value);
-    const emailError = emailValidator(email.value);
-    const passwordError = passwordValidator(password.value);
-    const emptyError = emptyfield(empty.value);
-    const phoneError = emptyfield(phone.value); 
+    const qualError = emptyfield(qual.value);
+    const serError = emptyfield(ser.value);
+    const ageError = emptyfield(age.value); 
     const specError = emptyfield(spec.value);
     const expError = emptyfield(exp.value);
 
-    if (emailError || passwordError || nameError || emptyError||phoneError||specError||expError) {
-      setName({ ...name, error: nameError });
-      setEmail({ ...email, error: emailError });
-      setPassword({ ...password, error: passwordError });
-      setEmpty({ ...empty, error: emptyError });
-      setPhone({ ...empty, error: phoneError });
-      setSpec({ ...empty, error: specError });
-      setExp({ ...empty, error: expError });
+    if (qualError || serError ||ageError||specError||expError) {
+      setQual({ ...qual, error: qualError });
+      setAge({ ...age, error: ageError });
+      setSer({ ...ser, error: serError });
+      setSpec({ ...spec, error: specError });
+      setExp({ ...exp, error: expError });
       return;
     }
 
     navigation.navigate('LoginScreen');
   };
 
-  // const _onSignUpPressed = () => {
-  //  try {
-  //     if (email.value !== '' && password.value !== '') {
-  //         auth.createUserWithEmailAndPassword(email.value, password.value); 
-  //         navigation.replace('LoginScreen', {otherParam: String})
-  //     }
-  //   } catch (error) {
-  //       alert(error.message)
-  //   }
-  // };
-
-  const pickfromGallery = async () => {
-    let result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.All,
-      allowsEditing: true,
-      cropping: true,
-      width:300, 
-      height:300,
-      //aspect: [4, 3],
-      quality: 1,
-    });
-
-    console.log(result);
-
-    if (!result.cancelled) {
-      setImage(result.uri);
-    }
-  }
-  const pickfromCamera = async () => {
-    let result = await ImagePicker.launchCameraAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.All,
-      allowsEditing: true,
-      cropping: true,
-      width:300, 
-      height:300,
-      //aspect: [4, 3],
-      quality: 1,
-    });
-
-    console.log(result);
-
-    if (!result.cancelled) {
-      setImage(result.uri);
-    }
-  }
 
   return (
     <View style= {styles.container}>
-      {/* <StatusBar backgroundColor="skyblue" translucent={true}/> */}
-      {/* <Logo /> */}
-      <ScrollView style= {styles.head}>
+      <ScrollView style= {styles.head}
+      showsVerticalScrollIndicator={false}>
       <View style= {styles.headcon}>
-      <Header>Create Account</Header>
+      <Header>Add Details</Header>
 
       <TextInput
-        label="Name"
+        label="Qualification"
         returnKeyType="next"
-        value={name.value}
-        onChangeText={text => setName({ value: text, error: '' })}
-        error={!!name.error}
-        errorText={name.error}
+        value={qual.value}
+        onChangeText={text => setQual({ value: text, error: '' })}
+        error={!!qual.error}
+        errorText={qual.error}
       />
       <TextInput
-        label="Email"
+        label="Age"
         returnKeyType="next"
-        value={email.value}
-        onChangeText={text => setEmail({ value: text, error: '' })}
-        error={!!email.error}
-        errorText={email.error}
-        autoCapitalize="none"
-        autoCompleteType="email"
-        textContentType="emailAddress"
-        keyboardType="email-address"
+        value={age.value}
+        onChangeText={text => setAge({ value: text, error: '' })}
+        error={!!age.error}
+        errorText={age.error}
+        keyboardType = 'numeric'
       />
       <TextInput
-        label="Phone No"
+        label="Serving"
         returnKeyType="next"
-        value={phone.value}
-        onChangeText={text => setPhone({ value: text, error: '' })}
-        error={!!phone.error}
-        errorText={phone.error}
+        value={ser.value}
+        onChangeText={text => setSer({ value: text, error: '' })}
+        error={!!ser.error}
+        errorText={ser.error}
       />
-      <TextInput
+      {/* <TextInput
         label="PMC No"
         returnKeyType="next"
         value={empty.value}
         onChangeText={text => setEmpty({ value: text, error: '' })}
         error={!!empty.error}
         errorText={empty.error}
-      />
+      /> */}
       <TextInput
         label="Specialty"
         returnKeyType="next"
@@ -154,60 +95,35 @@ const DocReg = ( {navigation}) => {
         onChangeText={text => setExp({ value: text, error: '' })}
         error={!!exp.error}
         errorText={exp.error}
+        keyboardType = 'numeric'
       />
-
-      <TextInput
-        label="Password"
-        returnKeyType="done"
-        value={password.value}
-        onChangeText={text => setPassword({ value: text, error: '' })}
-        error={!!password.error}
-        errorText={password.error}
-        secureTextEntry
-      />
+        <View style = {{marginRight:75}}>
+        <Text style = {styles.txt}> Serving Type</Text>
+        <View style = {{flexDirection: 'row'}}>
+            <RadioButton
+                value="public"
+                color= '#18b4f5'
+                status={ checked === 'public' ? 'checked' : 'unchecked' }
+                onPress={() => setChecked('public')}
+            />
+            <Text style = {styles.ratxt}> Public</Text>
+            <RadioButton
+                value="private"
+                color= '#18b4f5'
+                status={ checked === 'private' ? 'checked' : 'unchecked' }
+                onPress={() => setChecked('private')}
+            />
+            <Text style = {styles.ratxt}> Private</Text>
+            <RadioButton
+                value="both"
+                color= '#18b4f5'
+                status={ checked === 'both' ? 'checked' : 'unchecked' }
+                onPress={() => setChecked('both')}
+            />
+            <Text style = {styles.ratxt}> Both</Text>
+            </View>
+        </View>
       {/* <Dropdown/> */}
-      <Button
-        mode="outlined"
-        icon = {'upload'} 
-        onPress = {() =>setModalVisible(true)}
-        labelStyle={{color: '#3d3c3a'}}
-        style={{marginTop: 6, padding:4, width:'100%',borderWidth: 1}}>
-        Upload Image
-      </Button>
-      <Image style = {styles.imagearea} source ={{uri:image}}></Image>
-      <Modal
-          animationType="slide"
-          transparent={true}
-          visible={modalVisible}
-          onRequestClose={() => {
-            Alert.alert("Modal has been closed.");
-            setModalVisible(!modalVisible);
-          }}
-        >
-          <View style = {styles.modalview}>
-          <Button
-            mode="contained"
-            icon = 'camera'
-            onPress = {pickfromCamera}
-            style={{marginTop: 10, alignSelf: 'center', }}>
-            Camera
-          </Button>
-          <Button
-            mode="contained"
-            icon = 'image-area'
-            onPress = {pickfromGallery}
-            style={{marginTop: 10, alignSelf: 'center' }}>
-            Gallery
-          </Button>
-          <Button
-            mode="contained"
-            onPress = {()=> setModalVisible(!modalVisible)}
-            style={{marginTop: 10, alignSelf: 'center' }}>
-            Cancel
-          </Button>
-          </View>
-        
-        </Modal>
       <Button
         mode="contained"
         onPress={_onSignUpPressed}
@@ -256,6 +172,15 @@ const styles = StyleSheet.create({
     width:'100%',
     backgroundColor: '#e9f0ef'
   },
+  txt: {
+    marginTop: 6,
+    marginLeft: 5,
+    fontSize: 16 
+},
+ratxt: {
+    marginTop: 8,
+    fontSize: 14 
+},
 });
 
 export default DocReg;
