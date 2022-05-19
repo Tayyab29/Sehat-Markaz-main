@@ -7,27 +7,19 @@ import { theme } from "./core/theme";
 import { FontAwesome } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
-import { Dashboard, NotificationsTab, StartScreen } from "./User";
+import { Dashboard, NotificationsTab } from "./User";
 import MyAppoint from './myappoint';
-import PharmacyManagementProfile from "../../Portals/Pharmacy Management Portal/pharmacyManagementProfile";
+//import PharmacyManagementProfile from "../../Portals/Pharmacy Management Portal/pharmacyManagementProfile";
 import ProfileScreen from "../../Portals/Pharmacy Management Portal/Profilephar";
 
-// import Firebase from './firebase';
-// const auth = Firebase.auth();
 
 const Tab = createBottomTabNavigator();
-function SettingsScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Settings!</Text>
-    </View>
-  );
-}
+
 function Signout({ navigation }) {
   const handleSignOut = async (navigation) => {
     // try {
     //   await auth.signOut().then(
-    navigation.navigate("StartScreen", { otherParam: null }); //);
+    navigation.navigate("StartScreen", { otherParam: null }); 
     // } catch (error) {
     //   console.log(error);
     // }

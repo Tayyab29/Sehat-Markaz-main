@@ -8,7 +8,7 @@ import TextInput from '../components/TextInput';
 import { theme } from '../core/theme';
 import { nameValidator } from '../helpers/nameValidator';
 import {emptyfield } from '../helpers/emptyfield';
-import * as Location from 'expo-location';
+// import * as Location from 'expo-location';
 
 const PharReg = ( {navigation}) => {
  const [name, setName] = useState({ value: '', error: '' });

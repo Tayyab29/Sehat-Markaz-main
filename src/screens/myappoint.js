@@ -36,7 +36,13 @@ export default function MyAppoint({ navigation }) {
                 </Text>
             </View>
             </View>
-            <View style = {{flexDirection: 'row', borderBottomLeftRadius:6, borderBottomRightRadius:6 ,backgroundColor: '#ffff',}}>
+            <View 
+              style = {{flexDirection: 'row',
+                        borderBottomLeftRadius:6, 
+                        borderBottomRightRadius:6 ,
+                        backgroundColor: '#ffff', 
+                        justifyContent: 'space-evenly'
+                        }}>
             <View style ={{padding:10, flexDirection: 'row'}}>
                 <Icon name="calendar-alt" size={19} color="#57D4EB" />
                 <Text style = {{marginLeft: 7, fontSize:15,fontWeight:'bold', color: '#3c3c3d'}}> 20/04/2020</Text>
