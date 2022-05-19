@@ -41,6 +41,8 @@ export default function LoginScreen({ route }) {
       navigation.navigate("HomeLab");
     } else if (otherParam == "AmReg") {
       navigation.navigate("HomeAmbulance");
+    } else if (otherParam == "DocReg") {
+      navigation.navigate("HomeDoc");
     }
     //navigation.navigate("Root");
   };

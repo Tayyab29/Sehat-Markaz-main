@@ -22,8 +22,10 @@ import {
   NotificationsTab,
   DocProfile,
 } from "./User";
+import MyAppoint from "./myappoint";
 import DocDetails from "./Doctor/DocDetails";
 import Schedule from "./Doctor/Schedule";
+import BookDoc from "./Doctor/bookDoc";
 
 //For Ambulance Services Screens
 import Ambulance from "./Ambulance/start";
@@ -61,6 +63,7 @@ import Home from "../../Portals/Pharmacy Management Portal/Home";
 import ProfileScreen from "../../Portals/Pharmacy Management Portal/Profilephar";
 import ViewMed from "../../Portals/Pharmacy Management Portal/ViewMed";
 import AddMed from "../../Portals/Pharmacy Management Portal/addMed";
+import PharMedDetail from "../../Portals/Pharmacy Management Portal/PharMedDetail";
 
 //For Blood Donor Portal
 import StartBloodDonorPortal from "../../Portals/Blood Donor Portal/start";
@@ -76,7 +79,18 @@ import HomeLab from "../../Portals/Lab Management Portal/HomeLab";
 import StartAmbulanceServiceProvider from "../../Portals/Ambulance Service Provider Portal/start";
 import AmbulanceServiceProviderProfile from "../../Portals/Ambulance Service Provider Portal/ambServiceProviderProfile";
 import HomeAmb from "../../Portals/Ambulance Service Provider Portal/HomeAmb";
-import MyAppoint from "./myappoint";
+
+import GeocodingScreen from "./Location";
+import CurrentLocation from "./CurrentLocation";
+
+
+//For Doctor Management Portal
+import HomeDoc from "../../Portals/Doctor Management Portal/HomeDoc";
+import DocViewMed from "../../Portals/Doctor Management Portal/DocViewMed";
+import DocaddMed from "../../Portals/Doctor Management Portal/DocaddMed";
+import DocAppoint from "../../Portals/Doctor Management Portal/DocAppoint";
+
+
 
 
 
@@ -114,6 +128,16 @@ const StackNav = ({ navigation }) => {
             <Stack.Screen
               name="StartScreen"
               component={StartScreen}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="Location"
+              component={GeocodingScreen}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="CurrentLocation"
+              component={CurrentLocation}
               options={{ headerShown: false }}
             />
             <Stack.Screen
@@ -350,6 +374,13 @@ const StackNav = ({ navigation }) => {
               }}
             />
             <Stack.Screen
+              name="BookDoc"
+              component={BookDoc}
+              options={{
+                title: "Doctor Datails",
+              }}
+            />
+            <Stack.Screen
               name="Schedule"
               component={Schedule}
               options={{
@@ -452,6 +483,11 @@ const StackNav = ({ navigation }) => {
               component={AddMed}
               options={{ headerShown: false }}
             />
+            <Stack.Screen
+              name="PharMedDetail"
+              component={PharMedDetail}
+              options={{ headerShown: false }}
+            />
           </Stack.Group>
 
           <Stack.Group>
@@ -508,6 +544,31 @@ const StackNav = ({ navigation }) => {
               name="HomeAmbulance"
               component={HomeAmb}
               options={{ headerShown: false }}
+            />
+          </Stack.Group>
+          <Stack.Group>
+          <Stack.Screen
+              name="HomeDoc"
+              component={HomeDoc}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="DocViewMed"
+              component={DocViewMed}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="DocaddMed"
+              component={DocaddMed}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="DocAppoint"
+              component={DocAppoint}
+              options={{
+                title: 'Appointments',
+                headerShown: true,
+              }}
             />
           </Stack.Group>
         </Stack.Navigator>

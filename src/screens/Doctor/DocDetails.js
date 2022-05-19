@@ -11,37 +11,44 @@ import {
 import { FontAwesome } from "@expo/vector-icons";
 import Button from "../components/Button";
 // import { Button } from 'react-native-paper';
+import { Avatar } from "react-native-paper";
 
 export default function DocDetails({ route, navigation }) {
   const [data, setData] = useState(route.params.doc);
 
   return (
     <ScrollView style={styles.container}>
-      <Image source={require('../asset/image.jpg')} style={styles.img} />
+      <View style = {{height: 240, backgroundColor: '#f2fafc',justifyContent:'center'}}>
+      <Avatar.Image source={require('../asset/image.jpg')} size= {150} style={styles.img} />
+      <Text style={styles.name}>Dr. {data.name}</Text>
+      <Text style={{fontSize: 15, alignSelf: 'center', marginBottom: 10, color: '#65767d'}}>Age 50</Text>
+      </View>
       <View style={styles.detailContainer}>
-        <Text style={styles.name}>Dr. {data.name}</Text>
-        <Text style={styles.cont}>
-          <Text style={styles.head}>Category:</Text>{" "}
+        <View style={styles.cont}>
+          <Text style={styles.head}>Specialities</Text>
           <Text style={styles.sub}>{data.category}</Text>
-        </Text>
-        <Text style={styles.cont}>
-          <Text style={styles.head}>Experience:</Text>{" "}
+        </View>
+        <View style={styles.cont}>
+          <Text style={styles.head}>Experience</Text>
           <Text style={styles.sub}>{data.experience}</Text>
-        </Text>
-        <Text style={styles.head}>Description:</Text>
-        <Text style={styles.detail}>{data.description}</Text>
+        </View>
+        <Text style={styles.head}>Qualification</Text>
+        <Text style={styles.sub}>{data.description}</Text>
+        <View style = {{flexDirection: 'row', justifyContent: 'space-between'}}>
+        <Text style={styles.head}>Serving</Text>
+        <View style = {{backgroundColor: '#18b4f5', padding: 7,borderRadius: 8}}>
+        <Text style={{fontSize: 14, color: 'white'}}>Private</Text>
+        </View>
+        </View>
+        <Text style={styles.sub}>Noor Hospital, Islamabad</Text>
       </View>
       <View style={styles.btn}>
-      <TouchableOpacity style= {styles.cons} mode="contained" 
-        onPress={() => {}}>
-          <FontAwesome name='video-camera' color="#ffff" style= {styles.icon} size={22} />
-          <Text style={styles.btnTxt}>Online Consultation</Text>
-        </TouchableOpacity>
         <TouchableOpacity style= {styles.cons} mode="contained" 
-        onPress={() => {}}>
+        onPress={() => (navigation.push('BookDoc', {data})) }>
           <FontAwesome name='calendar' color="#ffff" style= {styles.icon} size={22} />
           <Text style={styles.btnTxt}>Book Appoinment</Text>
         </TouchableOpacity>
+        </View>
         {/* <TouchableOpacity
           style={styles.suc}
           onPress={() =>{}
@@ -78,7 +85,7 @@ export default function DocDetails({ route, navigation }) {
           <FontAwesome name="times" color="#fff" size={24} />
           <Text style={styles.btnTxt}>Decline</Text>
         </TouchableOpacity> */}
-      </View>
+      
     </ScrollView>
   );
 }
@@ -87,22 +94,23 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "white", //"#EEEAE2",
-    borderBottomEndRadius: 30
+    height: '100%'
   },
   img: {
-    height: 250,
-    width: 400,
     alignSelf: "center",
   },
   detailContainer: {
-    marginVertical: 15,
+    marginVertical: 5,
     padding: 15,
   },
   name: {
     alignSelf: "center",
-    fontSize: 28,
+    fontSize: 22,
     fontWeight: "bold",
-    marginBottom: 10
+    marginVertical:5
+  },
+  cont: {
+    flexDirection: 'column',
   },
   head: {
     fontSize: 20,
@@ -110,13 +118,15 @@ const styles = StyleSheet.create({
   },
   sub: {
     fontSize: 16,
-    fontWeight: "bold",
+    paddingTop: 10,
+    paddingBottom: 10,
+    color: '#2d2e2e'
   },
-  detail: {
-    fontSize: 16,
-    marginTop: 10,
-    marginLeft: 5,
-  },
+  // detail: {
+  //   fontSize: 16,
+  //   marginTop: 10,
+  //   marginLeft: 5,
+  // },
   btn: {
     flexDirection: 'column',
     padding: 10,

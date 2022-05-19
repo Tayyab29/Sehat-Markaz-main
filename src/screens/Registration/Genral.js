@@ -13,6 +13,7 @@ import { emailValidator } from '../helpers/emailValidator';
 import { passwordValidator } from '../helpers/passwordValidator';
 import { nameValidator } from '../helpers/nameValidator';
 import {emptyfield } from '../helpers/emptyfield';
+import { phoneValidator } from '../helpers/phoneValidator';
 import * as ImagePicker from 'expo-image-picker';
 import { RadioButton } from 'react-native-paper';
 import {Picker} from '@react-native-picker/picker';
@@ -20,10 +21,10 @@ import {Picker} from '@react-native-picker/picker';
 
 
 const Genral = ( {props, navigation, route}) => {
- const [name, setName] = useState({ value: '', error: '' });
+  const [name, setName] = useState({ value: '', error: '' });
   const [email, setEmail] = useState({ value: '', error: '' });
   const [password, setPassword] = useState({ value: '', error: '' });
-  const [empty, setEmpty] = useState({ value: '', error: '' });
+  const [phone, setPhone] = useState({ value: '', error: '' });
   const [modalVisible, setModalVisible] = useState(false);
   const [image, setImage] = useState();
   const [checked, setChecked] = React.useState('male');
@@ -67,14 +68,14 @@ const Genral = ( {props, navigation, route}) => {
     const nameError = nameValidator(name.value);
     const emailError = emailValidator(email.value);
     const passwordError = passwordValidator(password.value);
-    const emptyError = emptyfield(empty.value);
+    const phoneError = phoneValidator(phone.value);
     //const role = Valuecheck();
 
-    if (emailError || passwordError || nameError || emptyError) {
+    if (emailError || passwordError || nameError || phoneError) {
       setName({ ...name, error: nameError });
       setEmail({ ...email, error: emailError });
       setPassword({ ...password, error: passwordError });
-      setEmpty({ ...empty, error: emptyError });
+      setPhone({ ...phone, error: phoneError });
       return;}
 
       // console.log(selectedValue)
@@ -97,42 +98,6 @@ const Genral = ( {props, navigation, route}) => {
           navigation.navigate("LaReg");
         }
       
-      // fetch("http://192.168.18.10:5000/api/patient",{
-      //   methood: "post",
-      //   headers:{
-      //     'Content-Type': 'application/json'
-      //   },
-      //   body:JSON.stringify({
-      //     name, 
-      //     email,
-      //     password,
-      //     empty
-      //   })
-      // })
-      // .then(res=>res.json())
-      // .then(data => {
-      //   console.log(data)
-      // })
-    // const Valuecheck = ()=> {
-        // if (selectedValue === 'pa'){
-        // return 'PaReg'
-        // }
-        // else if (selectedValue === 'doc'){
-        // return 'DocReg'
-        // }
-        // else if (selectedValue === 'phar'){
-        // return 'PharReg'
-        // }
-        // else if (selectedValue === 'ambu'){
-        // return 'AmReg'
-        // }
-        // else if (selectedValue === 'bd'){
-        // return 'BDReg'
-        // }
-        // else if (selectedValue === 'lab'){
-        // return 'LaReg'
-        // }
-    // }
   };
   const pickfromGallery = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
@@ -169,16 +134,6 @@ const Genral = ( {props, navigation, route}) => {
     }
   }
   
-// const _onSignUpPressed = () => {
-//    try {
-//       if (email.value !== '' && password.value !== '') {
-//           auth.createUserWithEmailAndPassword(email.value, password.value); 
-//           navigation.replace('LoginScreen', {otherParam: String})
-//       }
-//     } catch (error) {
-//         alert(error.message)
-//     }
-//   };
 
   return (
     <View style= {styles.container}>
@@ -211,10 +166,11 @@ const Genral = ( {props, navigation, route}) => {
       <TextInput
         label="Phone No"
         returnKeyType="next"
-        value={empty.value}
-        onChangeText={text => setEmpty({ value: text, error: '' })}
-        error={!!empty.error}
-        errorText={empty.error}
+        value={phone.value}
+        onChangeText={text => setPhone({ value: text, error: '' })}
+        error={!!phone.error}
+        errorText={phone.error}
+        keyboardType = 'numeric'
       />
 
       <TextInput

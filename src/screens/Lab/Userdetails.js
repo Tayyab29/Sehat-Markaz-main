@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         alignSelf: 'center',
-        borderRadius: 30,
+        borderRadius: 10,
         padding: 10
       },
       btnTxt:{

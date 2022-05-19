@@ -19,7 +19,7 @@ import meds from '../../src/screens/Pharmacy/meds';
 const width = Dimensions.get('window').width / 2 - 30;
 
 
-const ViewMed = ({navigation, route}) => {
+const DocViewMed = ({navigation, route}) => {
 //   const dispatch = useDispatch();
 //   const total = useSelector(cartTotalSelector);
   const [med, setMed] = useState();
@@ -59,9 +59,7 @@ const ViewMed = ({navigation, route}) => {
 
   const Card = ({med}) => {
     return (
-      <TouchableOpacity
-        activeOpacity={0.8}
-        onPress={() => navigation.navigate('PharMedDetail', med)}>
+      <View>
         <View style={style.card}>
           <View
             style={{
@@ -81,35 +79,36 @@ const ViewMed = ({navigation, route}) => {
             style={{
               flexDirection: 'row',
               justifyContent: 'space-between',
-              marginTop: 5,
+              marginTop: 2,
             }}>
-            <Text style={{fontSize: 18, fontWeight: 'bold'}}>
-              Rs {med.price}
-            </Text>
+            <Text style={{fontSize: 15}}>
+             {med.price} ml {"\n"}
+             Company: Jubliee
+            </Text> 
           </View>
         </View>
-      </TouchableOpacity>
+      </View>
     );
   };
   return (
     <SafeAreaView
       style={{flex: 1, paddingHorizontal: 20, backgroundColor: 'white'}}>
       <View style={style.header}>
-        <View>
+        {/* <View>
           <Text style={{fontSize: 24, fontWeight: 'bold'}}>Welcome to</Text>
-          <Text style={{fontSize: 26, color: '#43ba63', fontWeight: 'bold'}}>
-          {/* {route.params.pharm.name} */}Makkah Pharmacy
+          <Text style={{fontSize: 26, color: '#18b4f5', fontWeight: 'bold'}}>
+          {/* {route.params.pharm.name} Makkah Pharmacy
           </Text>
-        </View>
+        </View> */}
       </View>
-      <View style={{marginTop: 30, flexDirection: 'row'}}>
+      <View style={{marginTop: 0, flexDirection: 'row'}}>
         <View style={style.searchContainer}>
           <Icon name="search" size={25} style={{marginLeft: 20}} />
           <TextInput placeholder="Search" style={style.input} />
         </View>
         <View style={style.sortBtn}>
         <TouchableOpacity
-            onPress={()=>navigation.navigate("addMed")} >
+            onPress={()=>navigation.navigate("DocaddMed")} >
           {/* <Icon name="sort" size={30} color={'white'} /> */}
           <Image
             source={require('../assets/addmed.png')}
@@ -147,10 +146,10 @@ const style = StyleSheet.create({
   },
   categoryText: {fontSize: 16, color: 'grey', fontWeight: 'bold'},
   categoryTextSelected: {
-    color: '#43ba63',
+    color: '#18b4f5',
     paddingBottom: 5,
     borderBottomWidth: 2,
-    borderColor: '#43ba63',
+    borderColor: '#18b4f5',
   },
   card: {
     height: 200,
@@ -188,9 +187,9 @@ const style = StyleSheet.create({
     height: 50,
     width: 50,
     borderRadius: 10,
-    backgroundColor: '#43ba63',
+    backgroundColor: '#18b4f5',
     justifyContent: 'center',
     alignItems: 'center',
   },
 });
-export default ViewMed;
+export default DocViewMed;

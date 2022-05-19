@@ -146,7 +146,7 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 100,
     borderBottomStartRadius: 100,
     paddingHorizontal: 10,
-    backgroundColor: "#f6f6f6",
+    backgroundColor: "#ffff",
     elevation: 5,
   },
   keys: {

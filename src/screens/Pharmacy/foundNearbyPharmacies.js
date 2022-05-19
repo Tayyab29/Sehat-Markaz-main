@@ -44,7 +44,7 @@ export default function FoundNearbyPharmacies({ navigation, route }) {
         >
         <View style = {styles.locbtn} >
         <Ionicons name="location-outline" size={35} color="#57D4EB" />
-        <Text style={styles.locTxt}>Nearby Ambulance Service</Text>
+        <Text style={styles.locTxt}>Nearby Pharmacies</Text>
         </View>
       </TouchableOpacity>
 

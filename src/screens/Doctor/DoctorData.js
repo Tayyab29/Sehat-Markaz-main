@@ -4,7 +4,7 @@ const users = [
         name : 'Kamran Azmat',
         category : 'Neurologist',
         experience : '10 years',
-        description : 'A licensed health professional who maintains and restores human health through the practice of medicine'
+        description : 'Post Doctrate, Gift University'
     },
     {
         id : '02',

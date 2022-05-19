@@ -1,119 +1,44 @@
 import React, { useState } from 'react';
 import {ScrollView, View, StyleSheet, TouchableOpacity,Alert, Modal, Image,StatusBar } from 'react-native';
 import { Text } from 'react-native-paper';
-import Logo from '../components/Logo';
 import Header from '../components/Header';
 import Button from '../components/Button';
-//import Uplaod from '../components/Upload';
-//import { Button } from 'react-native-paper';
 import TextInput from '../components/TextInput';
-import Dropdown from '../components/Dropdown';
 import { theme } from '../core/theme';
-import { emailValidator } from '../helpers/emailValidator';
-import { passwordValidator } from '../helpers/passwordValidator';
 import { nameValidator } from '../helpers/nameValidator';
 import {emptyfield } from '../helpers/emptyfield';
-import * as ImagePicker from 'expo-image-picker';
-// import Firebase from "../firebase";
-// const auth = Firebase.auth();
-
+import { RadioButton } from 'react-native-paper';
 
 
 const PaReg = ( {props, navigation, route}) => {
  const [name, setName] = useState({ value: '', error: '' });
-  const [email, setEmail] = useState({ value: '', error: '' });
-  const [password, setPassword] = useState({ value: '', error: '' });
   const [empty, setEmpty] = useState({ value: '', error: '' });
-  const [modalVisible, setModalVisible] = useState(false);
-  const [image, setImage] = useState();
+  const [address, setAddress] = useState({ value: '', error: '' });
+  const [checked, setChecked] = React.useState('public');
   
   const _onSignUpPressed = () => {
     const nameError = nameValidator(name.value);
-    const emailError = emailValidator(email.value);
-    const passwordError = passwordValidator(password.value);
+    const addressError = emptyfield(address.value);
     const emptyError = emptyfield(empty.value);
 
-    if (emailError || passwordError || nameError || emptyError) {
+    if (addressError || nameError || emptyError) {
       setName({ ...name, error: nameError });
-      setEmail({ ...email, error: emailError });
-      setPassword({ ...password, error: passwordError });
+      setAddress({ ...address, error: addressError });
       setEmpty({ ...empty, error: emptyError });
       
-      // fetch("http://192.168.18.10:5000/api/patient",{
-      //   methood: "post",
-      //   headers:{
-      //     'Content-Type': 'application/json'
-      //   },
-      //   body:JSON.stringify({
-      //     name, 
-      //     email,
-      //     password,
-      //     empty
-      //   })
-      // })
-      // .then(res=>res.json())
-      // .then(data => {
-      //   console.log(data)
-      // })
       return;}
     navigation.navigate('LoginScreen');
   };
-  const pickfromGallery = async () => {
-    let result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.All,
-      allowsEditing: true,
-      cropping: true,
-      width:300, 
-      height:300,
-      //aspect: [4, 3],
-      quality: 1,
-    });
-
-    console.log(result);
-
-    if (!result.cancelled) {
-      setImage(result.uri);
-    }
-  }
-  const pickfromCamera = async () => {
-    let result = await ImagePicker.launchCameraAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.All,
-      allowsEditing: true,
-      cropping: true,
-      width:300, 
-      height:300,
-      //aspect: [4, 3],
-      quality: 1,
-    });
-
-    console.log(result);
-
-    if (!result.cancelled) {
-      setImage(result.uri);
-    }
-  }
   
-// const _onSignUpPressed = () => {
-//    try {
-//       if (email.value !== '' && password.value !== '') {
-//           auth.createUserWithEmailAndPassword(email.value, password.value); 
-//           navigation.replace('LoginScreen', {otherParam: String})
-//       }
-//     } catch (error) {
-//         alert(error.message)
-//     }
-//   };
 
   return (
     <View style= {styles.container}>
-      {/* <StatusBar backgroundColor="skyblue" translucent={true}/> */}
-      {/* <Logo /> */}
       <ScrollView style= {styles.head}>
       <View style= {styles.headcon}>
-      <Header>Create Account</Header>
+      <Header>Add Details</Header>
 
       <TextInput
-        label="Name"
+        label="Father Name"
         returnKeyType="next"
         value={name.value}
         onChangeText={text => setName({ value: text, error: '' })}
@@ -121,78 +46,40 @@ const PaReg = ( {props, navigation, route}) => {
         errorText={name.error}
       />
       <TextInput
-        label="Email"
-        returnKeyType="next"
-        value={email.value}
-        onChangeText={text => setEmail({ value: text, error: '' })}
-        error={!!email.error}
-        errorText={email.error}
-        autoCapitalize="none"
-        autoCompleteType="email"
-        textContentType="emailAddress"
-        keyboardType="email-address"
-      />
-      <TextInput
-        label="Phone No"
+        label="Blood Group "
         returnKeyType="next"
         value={empty.value}
         onChangeText={text => setEmpty({ value: text, error: '' })}
         error={!!empty.error}
         errorText={empty.error}
       />
-
       <TextInput
-        label="Password"
-        returnKeyType="done"
-        value={password.value}
-        onChangeText={text => setPassword({ value: text, error: '' })}
-        error={!!password.error}
-        errorText={password.error}
-        secureTextEntry
+        label="Address"
+        returnKeyType="next"
+        value={address.value}
+        onChangeText={text => setAddress({ value: text, error: '' })}
+        error={!!address.error}
+        errorText={address.error}
       />
-      {/* <Dropdown/> */}
-      <Button
-        mode="outlined"
-        icon = {'upload'} 
-        onPress = {() =>setModalVisible(true)}
-        labelStyle={{color: '#3d3c3a'}}
-        style={{marginTop: 6, padding:4, width:'100%',borderWidth: 1}}>
-        Upload Image
-      </Button>
-      <Image style = {styles.imagearea} source ={{uri:image}}></Image>
-      <Modal
-          animationType="slide"
-          transparent={true}
-          visible={modalVisible}
-          onRequestClose={() => {
-            Alert.alert("Modal has been closed.");
-            setModalVisible(!modalVisible);
-          }}
-        >
-          <View style = {styles.modalview}>
-          <Button
-            mode="contained"
-            icon = 'camera'
-            onPress = {pickfromCamera}
-            style={{marginTop: 10, alignSelf: 'center', }}>
-            Camera
-          </Button>
-          <Button
-            mode="contained"
-            icon = 'image-area'
-            onPress = {pickfromGallery}
-            style={{marginTop: 10, alignSelf: 'center' }}>
-            Gallery
-          </Button>
-          <Button
-            mode="contained"
-            onPress = {()=> setModalVisible(!modalVisible)}
-            style={{marginTop: 10, alignSelf: 'center' }}>
-            Cancel
-          </Button>
-          </View>
-        
-        </Modal>
+      <View style = {{ marginRight: 80}}>
+        <Text style = {styles.txt}> Wanna become a BloodDonor</Text>
+        <View style = {{flexDirection: 'row'}}>
+            <RadioButton
+                value="public"
+                color= '#18b4f5'
+                status={ checked === 'public' ? 'checked' : 'unchecked' }
+                onPress={() => setChecked('public')}
+            />
+            <Text style = {styles.ratxt}> Yes</Text>
+            <RadioButton
+                value="private"
+                color= '#18b4f5'
+                status={ checked === 'private' ? 'checked' : 'unchecked' }
+                onPress={() => setChecked('private')}
+            />
+            <Text style = {styles.ratxt}> No</Text>
+            </View>
+        </View>
 
       <Button
         mode="contained"
@@ -243,6 +130,15 @@ const styles = StyleSheet.create({
     width:'100%',
     backgroundColor: '#e9f0ef'
   },
+  txt: {
+    marginTop: 6,
+    marginLeft: 5,
+    fontSize: 16 
+},
+ratxt: {
+    marginTop: 8,
+    fontSize: 14 
+},
 })
 
 export default PaReg;

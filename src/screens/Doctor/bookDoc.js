@@ -13,6 +13,8 @@ import { FontAwesome } from "@expo/vector-icons";
 import { Avatar } from 'react-native-paper';
 
 export default function BookDoc({ navigation, route }) {
+  const other2 = route.params.data;
+  console.log(other2)
    return(
        <View style = {styles.container}>
            <ScrollView>
@@ -27,9 +29,10 @@ export default function BookDoc({ navigation, route }) {
               />
             </View>
             <View style={styles.cardInfo}>
-              <Text style={styles.cardTitle}>Islamabad Diagnostic Centre</Text>
+              <Text style={styles.cardTitle}>Dr. {other2.name}</Text>
               <Text style={styles.cardDetails}>
-              Radiology Lab, Pathalogy Lab{"\n"}
+              {other2.category}{"\n"}
+              {other2.experience}
               </Text> 
             </View>
           </View>
@@ -51,7 +54,7 @@ export default function BookDoc({ navigation, route }) {
             <TouchableOpacity style= {styles.cons} mode="contained" 
                 onPress={() => {(navigation.push('Userdetails'))} }>
                 <FontAwesome name='calendar' color="#ffff" style= {styles.icon} size={22} />
-                <Text style={styles.btnTxt}> Book Appointment</Text>
+                <Text style={styles.btnTxt}> Confirm Booking</Text>
             </TouchableOpacity>
         </View>
         </View>
@@ -63,7 +66,8 @@ export default function BookDoc({ navigation, route }) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff'
+        backgroundColor: '#fff',
+        padding: 10
     },
     cardsWrapper: {
         width: '100%',
@@ -135,7 +139,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         alignSelf: 'center',
-        borderRadius: 30,
+        borderRadius: 10,
         padding: 10
       },
       btnTxt:{

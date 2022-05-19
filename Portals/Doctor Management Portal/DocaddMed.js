@@ -4,15 +4,12 @@ import { Text } from 'react-native-paper';
 import Button from '../../src/screens/components/Button';
 import TextInputR from '../../src/screens/components/TextInputR';
 import { theme } from '../../src/screens/core/theme';
-// import { emailValidator } from '../helpers/emailValidator';
-// import { passwordValidator } from '../helpers/passwordValidator';
-// import { nameValidator } from '../helpers/nameValidator';
 import {emptyfield } from '../../src/screens/helpers/emptyfield';
 import * as ImagePicker from 'expo-image-picker';
 import {Picker} from '@react-native-picker/picker';
 import { RadioButton } from 'react-native-paper';
 
-const AddMed = ( {navigation}) => {
+const DocaddMed = ( {navigation}) => {
  const [name, setName] = useState({ value: '', error: '' });
   const [email, setEmail] = useState({ value: '', error: '' });
   const [password, setPassword] = useState({ value: '', error: '' });
@@ -23,31 +20,6 @@ const AddMed = ( {navigation}) => {
   const [selectedValue, setSelectedValue] = useState("");
   const [checked, setChecked] = React.useState('tablet');
 
-  const DropdownT = () => {
-    return (
-      <View style={{width: "100%",
-        height: 53,
-        borderWidth: 1,
-        borderRadius: 4,
-        margin: 10,
-        borderColor: "gray",
-        backgroundColor: 'white',
-        color:'red'}}>
-        <Picker
-          selectedValue={selectedValue}
-          itemStyle = {'blue'}
-          style={[{ height: '100%', width: '100%'}, styles.pick]}
-          onValueChange={(itemValue) => setSelectedValue(itemValue)}
-          mode ="dropdown"
-          onPress
-        >
-          <Picker.Item label="Choose Type" value="" />
-          <Picker.Item label="Tablet " value="ta" />
-          <Picker.Item label="Syrup" value="sy" />
-        </Picker>
-      </View>
-    );
-  }
 
   const _onSignUpPressed = () => {
     const nameError = emptyfield(name.value);
@@ -121,7 +93,7 @@ const AddMed = ( {navigation}) => {
       <ScrollView style= {styles.head}
       showsVerticalScrollIndicator={false}>
       <View style= {styles.headcon}>
-      <Text style = {{color: '#43ba63', fontSize:22,fontWeight: 'bold'}}>Add Medicine</Text>
+      <Text style = {{color: '#18b4f5', fontSize:22,fontWeight: 'bold'}}>Add Medicine</Text>
 
       <TextInputR
         label="Name"
@@ -157,27 +129,26 @@ const AddMed = ( {navigation}) => {
         errorText={empty.error}
       />
 
-      <DropdownT/>
       <View style = {{marginRight:75}}>
             <Text style = {styles.txt}> Medicine Type</Text>
             <View style = {{flexDirection: 'row'}}>
                 <RadioButton
                     value="tablet"
-                    color= '#43ba63'
+                    color= '#18b4f5'
                     status={ checked === 'tablet' ? 'checked' : 'unchecked' }
                     onPress={() => setChecked('male')}
                 />
                 <Text style = {styles.ratxt}> Tablet</Text>
                 <RadioButton
                     value="syrup"
-                    color= '#43ba63'
+                    color= '#18b4f5'
                     status={ checked === 'syrup' ? 'checked' : 'unchecked' }
                     onPress={() => setChecked('syrup')}
                 />
                 <Text style = {styles.ratxt}> Syrup</Text>
                 <RadioButton
                     value="other"
-                    color= '#43ba63'
+                    color= '#18b4f5'
                     status={ checked === 'other' ? 'checked' : 'unchecked' }
                     onPress={() => setChecked('other')}
                 />
@@ -278,7 +249,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#e9f0ef'
   },
   cons: {
-    backgroundColor: '#43ba63',
+    backgroundColor: '#18b4f5',
     width: '80%',
     flexDirection: 'row',
     justifyContent: 'center',
@@ -302,4 +273,4 @@ ratxt: {
 },
 });
 
-export default AddMed;
+export default DocaddMed;
