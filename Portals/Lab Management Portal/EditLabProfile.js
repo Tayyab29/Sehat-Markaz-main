@@ -12,7 +12,7 @@ import {
 } from "react-native";
 import { useTheme } from "react-native-paper";
 import { Avatar } from "react-native-paper";
-import { Entypo } from "@expo/vector-icons";
+import { Entypo, Fontisto } from "@expo/vector-icons";
 import { Picker } from "@react-native-picker/picker";
 import * as ImagePicker from "expo-image-picker";
 import * as Permissions from "expo-permissions";
@@ -25,7 +25,7 @@ import Feather from "react-native-vector-icons/Feather";
 import axios from "axios";
 import url from "../../url.json";
 
-export default function PharmacyManagementProfile({ route }) {
+export default function EditLabProfile({ route }) {
   const [data, setData] = useState("");
   const [edit, setEdit] = useState(false);
   const [name, setName] = useState("");
@@ -140,9 +140,24 @@ export default function PharmacyManagementProfile({ route }) {
           </View>
         </View>
       </View>
+      
       <View style={styles.main}>
+      <View style={styles.action}>
+          <FontAwesome name="user" color={colors.text} size={26} />
+          <TextInput
+            placeholder="Own By"
+            placeholderTextColor="#666666"
+            autoCorrect={false}
+            style={[
+              styles.textInput,
+              {
+                color: colors.text,
+              },
+            ]}
+          />
+        </View>
         <View style={styles.action}>
-          <FontAwesome5 name="clinic-medical" color={colors.text} size={26} />
+          <Fontisto name="laboratory" color={colors.text} size={26} />
           <TextInput
             placeholder="Name"
             placeholderTextColor="#666666"
@@ -253,7 +268,7 @@ const styles = StyleSheet.create({
   commandButton: {
     padding: 15,
     borderRadius: 10,
-    backgroundColor: "#43ba63",
+    backgroundColor: "#f5a849",
     alignItems: "center",
     marginTop: 10,
   },
@@ -268,13 +283,6 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     borderBottomWidth: 1,
     borderBottomColor: "#f2f2f2",
-    paddingBottom: 5,
-  },
-  actionError: {
-    flexDirection: "row",
-    marginTop: 10,
-    borderBottomWidth: 1,
-    borderBottomColor: "#FF0000",
     paddingBottom: 5,
   },
   textInput: {

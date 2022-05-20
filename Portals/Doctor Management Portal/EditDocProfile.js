@@ -18,14 +18,16 @@ import * as ImagePicker from "expo-image-picker";
 import * as Permissions from "expo-permissions";
 import { AntDesign } from "@expo/vector-icons";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
-import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import Feather from "react-native-vector-icons/Feather";
-//import * as ImagePicker from "expo-image-picker";
+import Fontisto from "react-native-vector-icons/Fontisto";
+import { FontAwesome5 } from "@expo/vector-icons";
+import MIcon from "react-native-vector-icons/MaterialIcons";
+import SIcon from "react-native-vector-icons/SimpleLineIcons"; 
 import axios from "axios";
 import url from "../../url.json";
 
-export default function PharmacyManagementProfile({ route }) {
+export default function EditDocProfile({ route }) {
   const [data, setData] = useState("");
   const [edit, setEdit] = useState(false);
   const [name, setName] = useState("");
@@ -142,25 +144,10 @@ export default function PharmacyManagementProfile({ route }) {
       </View>
       <View style={styles.main}>
         <View style={styles.action}>
-          <FontAwesome5 name="clinic-medical" color={colors.text} size={26} />
+          <FontAwesome name="user-o" color={colors.text} size={26} />
           <TextInput
             placeholder="Name"
             placeholderTextColor="#666666"
-            autoCorrect={false}
-            style={[
-              styles.textInput,
-              {
-                color: colors.text,
-              },
-            ]}
-          />
-        </View>
-        <View style={styles.action}>
-          <Feather name="phone" color={colors.text} size={26} />
-          <TextInput
-            placeholder="Phone"
-            placeholderTextColor="#666666"
-            keyboardType="number-pad"
             autoCorrect={false}
             style={[
               styles.textInput,
@@ -186,9 +173,108 @@ export default function PharmacyManagementProfile({ route }) {
           />
         </View>
         <View style={styles.action}>
-          <Icon name="map-marker-outline" color={colors.text} size={26} />
+          <Feather name="phone" color={colors.text} size={26} />
           <TextInput
-            placeholder="Address"
+            placeholder="Phone"
+            placeholderTextColor="#666666"
+            keyboardType="number-pad"
+            autoCorrect={false}
+            style={[
+              styles.textInput,
+              {
+                color: colors.text,
+              },
+            ]}
+          />
+        </View>
+        <View style={styles.action}>
+          <Fontisto name="genderless" color={colors.text} size={26} />
+          <TextInput
+            placeholder="Gender"
+            placeholderTextColor="#666666"
+            autoCorrect={false}
+            style={[
+              styles.textInput,
+              {
+                color: colors.text,
+              },
+            ]}
+          />
+        </View>
+        <View style={styles.action}>
+          <Feather name="calendar" color={colors.text} size={26} />
+          <TextInput
+            placeholder="Age"
+            placeholderTextColor="#666666"
+            autoCorrect={false}
+            style={[
+              styles.textInput,
+              {
+                color: colors.text,
+              },
+            ]}
+          />
+        </View>
+        <View style={styles.action}>
+          <Icon name="cast-education" color={colors.text} size={26} />
+          <TextInput
+            placeholder="Qualification"
+            placeholderTextColor="#666666"
+            autoCorrect={false}
+            style={[
+              styles.textInput,
+              {
+                color: colors.text,
+              },
+            ]}
+          />
+        </View>
+        <View style={styles.action}>
+          <FontAwesome5 name="hospital" color={colors.text} size={26} />
+          <TextInput
+            placeholder="Serving"
+            placeholderTextColor="#666666"
+            autoCorrect={false}
+            style={[
+              styles.textInput,
+              {
+                color: colors.text,
+              },
+            ]}
+          />
+        </View>
+        <View style={styles.action}>
+          <MIcon name="work" color={colors.text} size={26} />
+          <TextInput
+            placeholder="Experience"
+            placeholderTextColor="#666666"
+            autoCorrect={false}
+            style={[
+              styles.textInput,
+              {
+                color: colors.text,
+              },
+            ]}
+          />
+        </View>
+        <View style={styles.action}>
+          <FontAwesome name="stethoscope" color={colors.text} size={26} />
+          <TextInput
+            placeholder="Specialized"
+            placeholderTextColor="#666666"
+            autoCorrect={false}
+            style={[
+              styles.textInput,
+              {
+                color: colors.text,
+              },
+            ]}
+          />
+        </View>
+        <View style={styles.action}>
+          <SIcon name="options" color={colors.text} size={26} />
+          <TextInput
+            placeholder="Serving Type"
             placeholderTextColor="#666666"
             autoCorrect={false}
             style={[
@@ -215,7 +301,7 @@ export default function PharmacyManagementProfile({ route }) {
 
 const styles = StyleSheet.create({
   container: {
-    // marginHorizontal: 10,
+    marginHorizontal: 10,
     backgroundColor: '#ffff'
   },
   uploadImageContainer: {
@@ -253,9 +339,52 @@ const styles = StyleSheet.create({
   commandButton: {
     padding: 15,
     borderRadius: 10,
-    backgroundColor: "#43ba63",
+    backgroundColor: "#18b4f5",
     alignItems: "center",
     marginTop: 10,
+  },
+  panel: {
+    padding: 20,
+    backgroundColor: "#FFFFFF",
+    paddingTop: 20,
+  },
+  header: {
+    backgroundColor: "#FFFFFF",
+    shadowColor: "#333333",
+    shadowOffset: { width: -1, height: -3 },
+    shadowRadius: 2,
+    shadowOpacity: 0.4,
+    // elevation: 5,
+    paddingTop: 20,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+  },
+  panelHeader: {
+    alignItems: "center",
+  },
+  panelHandle: {
+    width: 40,
+    height: 8,
+    borderRadius: 4,
+    backgroundColor: "#00000040",
+    marginBottom: 10,
+  },
+  panelTitle: {
+    fontSize: 27,
+    height: 35,
+  },
+  panelSubtitle: {
+    fontSize: 14,
+    color: "gray",
+    height: 30,
+    marginBottom: 10,
+  },
+  panelButton: {
+    padding: 13,
+    borderRadius: 10,
+    backgroundColor: "#FF6347",
+    alignItems: "center",
+    marginVertical: 7,
   },
   panelButtonTitle: {
     fontSize: 17,

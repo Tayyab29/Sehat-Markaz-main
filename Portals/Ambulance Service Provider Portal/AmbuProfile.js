@@ -25,7 +25,7 @@ import Feather from "react-native-vector-icons/Feather";
 import axios from "axios";
 import url from "../../url.json";
 
-export default function PharmacyManagementProfile({ route }) {
+export default function AmbuProfile({ route }) {
   const [data, setData] = useState("");
   const [edit, setEdit] = useState(false);
   const [name, setName] = useState("");
