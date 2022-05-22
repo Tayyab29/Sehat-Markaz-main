@@ -60,7 +60,7 @@ const PharMedDetail = ({navigation, route}) => {
                 fontWeight: 'bold',
                 fontSize: 16,
               }}>
-              {/* {med.price} */}100
+              {/* {med.price} */}{med.quantity}
             </Text>
           </View>
         </View>
@@ -122,7 +122,7 @@ const PharMedDetail = ({navigation, route}) => {
 const style = StyleSheet.create({
   header: {
     paddingHorizontal: 20,
-    marginTop: 40,
+    marginTop: '7%',
     flexDirection: 'row',
     justifyContent: 'space-between',
   },

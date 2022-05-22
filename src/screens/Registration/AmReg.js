@@ -8,20 +8,13 @@ import TextInput from '../components/TextInput';
 //import Dropdown from '../components/DropdownR';
 import Dropdown from '../components/Dropdown';
 import { theme } from '../core/theme';
-import { emailValidator } from '../helpers/emailValidator';
-import { passwordValidator } from '../helpers/passwordValidator';
 import { nameValidator } from '../helpers/nameValidator';
 import {emptyfield } from '../helpers/emptyfield';
-import * as ImagePicker from 'expo-image-picker';
-// import Firebase from "../firebase";
-// const auth = Firebase.auth();
 
 const AmReg = ( {navigation}) => {
   const [name, setName] = useState({ value: '', error: '' });
   const [empty, setEmpty] = useState({ value: '', error: '' });
   const [address, setAddress] = useState({ value: '', error: '' });
-  const [image, setImage] = useState();
-  const [modalVisible, setModalVisible] = useState(false);
   
   const _onSignUpPressed = () => {
     const nameError = nameValidator(name.value);
@@ -39,47 +32,10 @@ const AmReg = ( {navigation}) => {
     navigation.navigate('LoginScreen');
   };
 
-
-  const pickfromGallery = async () => {
-    let result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.All,
-      allowsEditing: true,
-      cropping: true,
-      width:300, 
-      height:300,
-      //aspect: [4, 3],
-      quality: 1,
-    });
-
-    console.log(result);
-
-    if (!result.cancelled) {
-      setImage(result.uri);
-    }
-  }
-  const pickfromCamera = async () => {
-    let result = await ImagePicker.launchCameraAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.All,
-      allowsEditing: true,
-      cropping: true,
-      width:300, 
-      height:300,
-      //aspect: [4, 3],
-      quality: 1,
-    });
-
-    console.log(result);
-
-    if (!result.cancelled) {
-      setImage(result.uri);
-    }
-  }
-
   return (
     <View style= {styles.container}>
-      {/* <StatusBar backgroundColor="skyblue" translucent={true}/> */}
-      {/* <Logo /> */}
-      <ScrollView style= {styles.head}>
+      <ScrollView style= {styles.head}
+      showsVerticalScrollIndicator={false}>
       <View style= {styles.headcon}>
       <Header>Add Details</Header>
 

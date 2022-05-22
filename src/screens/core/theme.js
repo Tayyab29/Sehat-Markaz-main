@@ -7,6 +7,7 @@ export const theme = {
     text: 'black',
     primary: '#18b4f5', 
     surface: 'white',
-    green: '#43ba63'
+    green: '#43ba63', 
+    black: '#0d0d0c'
   },
 };

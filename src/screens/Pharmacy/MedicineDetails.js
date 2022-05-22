@@ -154,7 +154,7 @@ const MedicineDetails = ({navigation, route}) => {
 const style = StyleSheet.create({
   header: {
     paddingHorizontal: 20,
-    marginTop: 40,
+    marginTop: '7%',
     flexDirection: 'row',
     justifyContent: 'space-between',
   },

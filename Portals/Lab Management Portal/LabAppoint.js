@@ -13,7 +13,7 @@ import { Avatar } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import EIcon from 'react-native-vector-icons/Entypo';
 
-export default function DocAppoint({ navigation }) {
+export default function LabAppoint({ navigation }) {
   return (
     <View style= {styles.container}>
       <FlatList 
@@ -43,15 +43,15 @@ export default function DocAppoint({ navigation }) {
                         padding: 5
                         }}>
             <View style ={{flexDirection: 'row'}}>
-                <Icon name="calendar-alt" size={19} color="#57D4EB" />
+                <Icon name="calendar-alt" size={19} color="#f5a849" />
                 <Text style = {{marginLeft: 7, fontSize:15,fontWeight:'bold', color: '#3c3c3d'}}> 20/04/2020</Text>
             </View>
             <View style ={{flexDirection: 'row'}}>
-                <Icon name="clock" size={19} color="#57D4EB" />
+                <Icon name="clock" size={19} color="#f5a849" />
                 <Text style = {{marginLeft: 7, fontSize:15,fontWeight:'bold', color: '#3c3c3d'}}> 11:00 </Text>
             </View>
             <View style ={{flexDirection: 'row'}}>
-                <EIcon name="dot-single" size={19} color="#57D4EB" />
+                <EIcon name="dot-single" size={19} color="#f5a849" />
                 <Text style = {{marginLeft: 0, fontSize:15,fontWeight:'bold', color: '#3c3c3d'}}> Unconfirmed </Text>
             </View>
             </View>
@@ -134,7 +134,7 @@ const styles = StyleSheet.create({
     color: '#444',
   },
   cons: {
-    backgroundColor: '#18b4f5',
+    backgroundColor: '#f5a849',
     width: '35%',
     justifyContent: 'center',
     alignSelf: 'center',

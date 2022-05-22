@@ -4,45 +4,49 @@ import {
   ScrollView,
   StyleSheet,
   Text,
+  Alert,
   TextInput,
   Linking,
   Image,
   TouchableOpacity,
-  Alert,
 } from "react-native";
+import { useTheme } from "react-native-paper";
 import { Avatar } from "react-native-paper";
-import { Entypo } from "@expo/vector-icons";
+import { Entypo, Fontisto } from "@expo/vector-icons";
 import { Picker } from "@react-native-picker/picker";
 import * as ImagePicker from "expo-image-picker";
 import * as Permissions from "expo-permissions";
 import { AntDesign } from "@expo/vector-icons";
+import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
+import FontAwesome from "react-native-vector-icons/FontAwesome";
+import Feather from "react-native-vector-icons/Feather";
 //import * as ImagePicker from "expo-image-picker";
 import axios from "axios";
 import url from "../../url.json";
 
-export default function BloodDonorProfile({ route }) {
-  const [data, setData] = useState("");
-  const [edit, setEdit] = useState(false);
+export default function EditAmbuProfile({ route }) {
+  // const [data, setData] = useState("");
+  // const [edit, setEdit] = useState(false);
   const [name, setName] = useState("");
-  const [age, setAge] = useState("");
-  const [bloodgroup, setBloodGroup] = useState("A+");
   const [address, setAddress] = useState("");
   const [contact, setContact] = useState("");
+  const [email, setEmail] = useState("");
+  const [own, setOwn] = useState("");
   const [profile_pic, setImage] = useState(
     "https://image.shutterstock.com/image-vector/default-avatar-profile-icon-vector-260nw-1725655669.jpg"
   );
+  const { colors } = useTheme();
 
   useEffect(() => {
     const apiCall = async () => {
       console.log("a");
       try {
         const res = await axios.get(
-          `${url.url}api/blooddonor/62311acdf766fec7c897a35f`
+          `${url.url}api/pharmacy/62311c1743d3123d6855c921`
         );
         setImage(res.data.profile_pic);
         setName(res.data.name);
-        setAge(res.data.age);
-        setBloodGroup(res.data.bloodgroup);
         setAddress(res.data.address);
         setContact(res.data.contact);
       } catch (err) {
@@ -98,10 +102,6 @@ export default function BloodDonorProfile({ route }) {
       });
   };
 
-  // const addImage = async () => {
-  //   let _image = await ImagePicker.launchImageLibraryAsync();
-  // };
-
   const onPresHandler = async () => {
     const config = {
       headers: {
@@ -111,7 +111,7 @@ export default function BloodDonorProfile({ route }) {
     const body = { name, age, bloodgroup, address, contact, profile_pic };
     try {
       const res = await axios.post(
-        `${url}api/blooddonor/update/62311acdf766fec7c897a35f`,
+        `${url}api/pharmacy/update/62311c1743d3123d6855c921`,
         body,
         config
       );
@@ -131,7 +131,6 @@ export default function BloodDonorProfile({ route }) {
             }}
             style={{ width: 200, height: 200 }}
           />
-          {/* {console.log(image)} */}
           <View style={styles.uploadBtnContainer}>
             <TouchableOpacity
               onPress={pickFromGallery}
@@ -143,109 +142,101 @@ export default function BloodDonorProfile({ route }) {
           </View>
         </View>
       </View>
-      {/* <Avatar.Image source={kami} size={200} /> */}
-      <View
-        style={{
-          flexDirection: "row-reverse",
-          marginVertical: 20,
-          marginLeft: 60,
-        }}
-      >
-        <TouchableOpacity onPress={() => setEdit(!edit)}>
-          <Entypo name="edit" size={20} color="gray" style={{ marginTop: 8 }} />
-        </TouchableOpacity>
-        <TextInput
-          style={styles.name}
-          editable={edit ? true : false}
-          name="name"
-          value={name}
-          onChangeText={(name) => setName(name)}
-        />
-      </View>
-
-      <View style={styles.details}>
-        <View style={{ flexDirection: "row" }}>
-          <Text style={styles.keys}>Age: </Text>
+      
+      <View style={styles.main}>
+      <View style={styles.action}>
+          <FontAwesome name="user" color={colors.text} size={26} />
           <TextInput
-            style={styles.values}
-            name="name"
-            value={age}
-            onChangeText={(age) => setAge(age)}
-          >
-            {/* //{console.log(age)} */}
-          </TextInput>
+            placeholder="Name"
+            placeholderTextColor="#666666"
+            autoCorrect={false}
+            style={[
+              styles.textInput,
+              {
+                color: colors.text,
+              },
+            ]}
+          />
         </View>
-
-        <View style={{ flexDirection: "row", height: "19%" }}>
-          <Text style={styles.keys}>Blood Group: </Text>
-          <View style={styles.values}>
-            <Picker
-              mode="dropdown"
-              style={{ marginTop: -12, marginLeft: -5, color: "gray" }}
-              selectedValue={bloodgroup}
-              onValueChange={(itemValue) => setBloodGroup(itemValue)}
-            >
-              <Picker.Item label="A+" value="A+" />
-              <Picker.Item label="A-" value="A-" />
-              <Picker.Item label="B+" value="B+" />
-              <Picker.Item label="B-" value="B-" />
-              <Picker.Item label="AB+" value="AB+" />
-              <Picker.Item label="AB-" value="AB-" />
-              <Picker.Item label="O+" value="O+" />
-              <Picker.Item label="O-" value="O-" />
-            </Picker>
-          </View>
-          {/* {console.log(bloodGroup)} */}
-        </View>
-
-        <View style={{ flexDirection: "row" }}>
-          <Text style={styles.keys}>Address: </Text>
+        <View style={styles.action}>
+          <Icon name="ambulance" color={colors.text} size={26} />
           <TextInput
-            style={styles.values}
-            name="address"
-            value={address}
-            onChangeText={(address) => setAddress(address)}
-          >
-            {/* {console.log(address)} */}
-          </TextInput>
+            placeholder="Service Provider Name"
+            placeholderTextColor="#666666"
+            autoCorrect={false}
+            style={[
+              styles.textInput,
+              {
+                color: colors.text,
+              },
+            ]}
+          />
         </View>
-
-        <View style={{ flexDirection: "row" }}>
-          <Text style={styles.keys}>Contact: </Text>
+        <View style={styles.action}>
+          <Feather name="phone" color={colors.text} size={26} />
           <TextInput
-            style={styles.values}
-            name="contact"
-            value={contact}
-            onChangeText={(contact) => setContact(contact)}
-          >
-            {/* {console.log(contact)} */}
-          </TextInput>
+            placeholder="Phone"
+            placeholderTextColor="#666666"
+            keyboardType="number-pad"
+            autoCorrect={false}
+            style={[
+              styles.textInput,
+              {
+                color: colors.text,
+              },
+            ]}
+          />
         </View>
-      </View>
-
-      <View style={{ alignItems: "center" }}>
+        <View style={styles.action}>
+          <FontAwesome name="envelope-o" color={colors.text} size={26} />
+          <TextInput
+            placeholder="Email"
+            placeholderTextColor="#666666"
+            keyboardType="email-address"
+            autoCorrect={false}
+            style={[
+              styles.textInput,
+              {
+                color: colors.text,
+              },
+            ]}
+          />
+        </View>
+        <View style={styles.action}>
+          <Icon name="map-marker-outline" color={colors.text} size={26} />
+          <TextInput
+            placeholder="Address"
+            placeholderTextColor="#666666"
+            autoCorrect={false}
+            style={[
+              styles.textInput,
+              {
+                color: colors.text,
+              },
+            ]}
+          />
+        </View>
         <TouchableOpacity
-          style={styles.btn}
+          style={styles.commandButton}
           onPress={() => {
             onPresHandler();
             alert("Profile Data Updated");
           }}
         >
-          <Text style={styles.updateBtn}>Save</Text>
+          <Text style={styles.panelButtonTitle}>Submit</Text>
         </TouchableOpacity>
       </View>
-      {/* {console.log(data)} */}
     </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: "10%",
-    marginHorizontal: 10,
-    //  width: "100%",
+    // marginHorizontal: 10,
+    backgroundColor: '#ffff'
   },
   uploadImageContainer: {
+    marginTop: '5%',
     alignItems: "center",
     justifyContent: "center",
   },
@@ -272,50 +263,34 @@ const styles = StyleSheet.create({
     borderRadius: 999,
     overflow: "hidden",
   },
-  name: {
-    fontSize: 24,
-    fontWeight: "bold",
-    color: "#26241e",
-    marginRight: 10,
+  main: {
+    marginTop: 5,
+    padding: 15,
   },
-  details: {
-    borderTopWidth: 0.3,
-    // borderBottomEndRadius: 10,
-    // // borderBottomRightRadius: 100,
-    // borderBottomStartRadius: 100,
-  },
-  keys: {
-    fontSize: 16,
-    fontWeight: "bold",
-    color: "#26241e",
-    marginTop: "4%",
-    width: "30%",
-  },
-  values: {
-    fontSize: 14,
-    color: "#6e6464",
-    marginTop: "2%",
-    width: "65%",
-    borderWidth: 0.5,
-    borderRadius: 5,
-    padding: 4,
-  },
-  click: {
-    fontSize: 14,
-    color: "#6e6464",
-    borderBottomWidth: 0.5,
-  },
-  btn: {
+  commandButton: {
+    padding: 15,
+    borderRadius: 10,
+    backgroundColor: "#e64c4c",
     alignItems: "center",
-    height: 100,
+    marginTop: 10,
   },
-  updateBtn: {
-    padding: 10,
+  panelButtonTitle: {
+    fontSize: 17,
+    fontWeight: "bold",
     color: "white",
-    paddingHorizontal: 50,
-    alignItems: "center",
-    fontSize: 16,
-    borderRadius: 15,
-    backgroundColor: "#09da41",
+  },
+  action: {
+    flexDirection: "row",
+    marginTop: 10,
+    marginBottom: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: "#f2f2f2",
+    paddingBottom: 5,
+  },
+  textInput: {
+    flex: 1,
+    marginTop: Platform.OS === "ios" ? 0 : -3,
+    paddingLeft: 15,
+    color: "#05375a",
   },
 });

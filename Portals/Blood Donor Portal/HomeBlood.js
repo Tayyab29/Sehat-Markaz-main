@@ -31,7 +31,7 @@ const HomeBlood = ({ navigation }) => {
           style={{
             height: 10,
             width: 20,
-            marginTop: 25,
+            marginTop: '8%',
           }}
         />
         <View
@@ -96,23 +96,22 @@ const HomeBlood = ({ navigation }) => {
             top: 0,
           }}
         />
-        <View style={{ flexDirection: "row" }}>
+        <View style = {{flexDirection: 'row',justifyContent:'space-evenly'}}>
           <TouchableOpacity
-            // onPress={() => navigation.navigate("Detail")}
+             onPress={()=>navigation.navigate("BloodDonorProfile")}
             style={{
               height: 150,
               elevation: 2,
               backgroundColor: "#FFF",
               alignItems: "center",
               justifyContent: "center",
-              marginLeft: 20,
               marginTop: 20,
               borderRadius: 15,
               marginBottom: 10,
               width: 160,
             }}
           >
-            <Icon name="user-md" size={70} color="#eb3838" />
+            <Icon name="user" size={70} color="#eb3838" />
             <View
               style={{
                 flexDirection: "row",
@@ -132,14 +131,13 @@ const HomeBlood = ({ navigation }) => {
           </TouchableOpacity>
 
           <TouchableOpacity
-            // onPress={()=>navigation.navigate("Detail")}
+            // onPress={()=>navigation.navigate("BloodRequest")}
             style={{
               height: 150,
               elevation: 2,
               backgroundColor: "#FFF",
               alignItems: "center",
               justifyContent: "center",
-              marginLeft: 20,
               marginTop: 20,
               borderRadius: 15,
               marginBottom: 10,
@@ -165,7 +163,7 @@ const HomeBlood = ({ navigation }) => {
           </TouchableOpacity>
         </View>
 
-        <View style={{ flexDirection: "row" }}>
+        <View style = {{flexDirection: 'row',justifyContent:'space-evenly'}}>
           <TouchableOpacity
             // onPress={() => navigation.navigate("Detail")}
             style={{
@@ -174,7 +172,6 @@ const HomeBlood = ({ navigation }) => {
               backgroundColor: "#FFF",
               alignItems: "center",
               justifyContent: "center",
-              marginLeft: 20,
               marginTop: 20,
               borderRadius: 15,
               marginBottom: 10,
@@ -200,6 +197,71 @@ const HomeBlood = ({ navigation }) => {
           </TouchableOpacity>
 
           <TouchableOpacity
+            onPress={()=>navigation.navigate("BloodRequest")}
+            style={{
+              height: 150,
+              elevation: 2,
+              backgroundColor: "#FFF",
+              alignItems: "center",
+              justifyContent: "center",
+              marginTop: 20,
+              borderRadius: 15,
+              marginBottom: 10,
+              width: 160,
+            }}
+          >
+            <MIcon name="blood-bag" size={70} color="#eb3838" />
+            <View
+              style={{
+                flexDirection: "row",
+                paddingTop: 10,
+                paddingHorizontal: 10,
+              }}
+            >
+              <Text
+                style={{
+                  fontWeight: "bold",
+                }}
+              >
+               Blood Request
+              </Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+        <View style = {{flexDirection: 'row',justifyContent:'space-evenly'}}>
+          {/* <TouchableOpacity
+            // onPress={() => navigation.navigate("Detail")}
+            style={{
+              height: 150,
+              elevation: 2,
+              backgroundColor: "#FFF",
+              alignItems: "center",
+              justifyContent: "center",
+              marginTop: 20,
+              borderRadius: 15,
+              marginBottom: 10,
+              width: 160,
+            }}
+          >
+            <MIcon name="android-messages" size={70} color="#eb3838" />
+            <View
+              style={{
+                flexDirection: "row",
+                paddingTop: 10,
+                paddingHorizontal: 10,
+              }}
+            >
+              <Text
+                style={{
+                  fontWeight: "bold",
+                }}
+              >
+                Messages
+              </Text>
+            </View>
+          </TouchableOpacity> */}
+
+          <TouchableOpacity
             // onPress={()=>navigation.navigate("Detail")}
             style={{
               height: 150,
@@ -207,7 +269,6 @@ const HomeBlood = ({ navigation }) => {
               backgroundColor: "#FFF",
               alignItems: "center",
               justifyContent: "center",
-              marginLeft: 20,
               marginTop: 20,
               borderRadius: 15,
               marginBottom: 10,

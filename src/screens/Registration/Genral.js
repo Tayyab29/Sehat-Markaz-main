@@ -139,7 +139,8 @@ const Genral = ( {props, navigation, route}) => {
     <View style= {styles.container}>
       <StatusBar backgroundColor="white" translucent={true}/>
       {/* <Logo /> */}
-      <ScrollView style= {styles.head}>
+      <ScrollView style= {styles.head}
+      showsVerticalScrollIndicator={false}>
       <View style= {styles.headcon}>
       <Header>Create Account</Header>
 

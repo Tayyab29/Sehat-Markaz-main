@@ -26,11 +26,12 @@ import axios from "axios";
 import url from "../../url.json";
 
 export default function PharmacyManagementProfile({ route }) {
-  const [data, setData] = useState("");
-  const [edit, setEdit] = useState(false);
+  // const [data, setData] = useState("");
+  // const [edit, setEdit] = useState(false);
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
   const [contact, setContact] = useState("");
+  const [email, setEmail] = useState("");
   const [profile_pic, setImage] = useState(
     "https://image.shutterstock.com/image-vector/default-avatar-profile-icon-vector-260nw-1725655669.jpg"
   );
@@ -141,10 +142,24 @@ export default function PharmacyManagementProfile({ route }) {
         </View>
       </View>
       <View style={styles.main}>
+      <View style={styles.action}>
+          <FontAwesome name="user" color={colors.text} size={26} />
+          <TextInput
+            placeholder="Name"
+            placeholderTextColor="#666666"
+            autoCorrect={false}
+            style={[
+              styles.textInput,
+              {
+                color: colors.text,
+              },
+            ]}
+          />
+        </View>
         <View style={styles.action}>
           <FontAwesome5 name="clinic-medical" color={colors.text} size={26} />
           <TextInput
-            placeholder="Name"
+            placeholder="Pharmacy Name"
             placeholderTextColor="#666666"
             autoCorrect={false}
             style={[

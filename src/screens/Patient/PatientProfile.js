@@ -7,22 +7,26 @@ import {
   Image,
   TouchableOpacity,
   Alert,
+  Linking,
 } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
+import { Entypo } from "@expo/vector-icons";
 import { Avatar } from "react-native-paper";
 
 export default function PatientProfile({ route, navigation }) {
   // const [data, setData] = useState(route.params.doc);
+  const location = (address) => {
+    Linking.openURL(
+      `https://www.google.com/maps/search/?api=1&query=${address}`
+    );
+  };
 
   return (
     <ScrollView style={styles.container}>
       <View style = {{height: 240, backgroundColor: '#f2fafc',justifyContent:'center'}}>
-      <Avatar.Image source={require('./asset/image.jpg')} size= {150} style={styles.img} />
-      <Text style={styles.name}>Dr. Kamran Azmat </Text>
-      <View style = {{flexDirection: 'row', alignSelf: 'center'}}>
-      <Text style={{fontSize: 15, alignSelf: 'center', marginBottom: 10, color: '#65767d', marginRight: 50}}>Age 50</Text>
+      <Avatar.Image source={require('../asset/image.jpg')} size= {150} style={styles.img} />
+      <Text style={styles.name}>M Tayyab Khazain </Text>
       <Text style={{fontSize: 15, alignSelf: 'center', marginBottom: 10,color: '#65767d'}}>Male</Text>
-      </View>
       </View>
       <View style={styles.detailContainer}>
       <View style={styles.cont}>
@@ -31,29 +35,29 @@ export default function PatientProfile({ route, navigation }) {
         </View>
         <View style={styles.cont}>
           <Text style={styles.head}>Email</Text>
-          <Text style={styles.sub}>kamran.azmat926@gmail.com</Text>
+          <Text style={styles.sub}>xhahg32@gmail.com</Text>
         </View>
         <View style={styles.cont}>
-          <Text style={styles.head}>Specialities</Text>
-          <Text style={styles.sub}>Genral Physician, Neurologist</Text>
+          <Text style={styles.head}>Fater Name</Text>
+          <Text style={styles.sub}>M Tahir Amir</Text>
         </View>
         <View style={styles.cont}>
-          <Text style={styles.head}>Experience</Text>
-          <Text style={styles.sub}>10 Years</Text>
+          <Text style={styles.head}>Blood Group</Text>
+          <Text style={styles.sub}>A+</Text>
         </View>
-        <Text style={styles.head}>Qualification</Text>
-        <Text style={styles.sub}>Post Graduate, Gift University</Text>
-        <View style = {{flexDirection: 'row', justifyContent: 'space-between'}}>
-        <Text style={styles.head}>Serving</Text>
-        <View style = {{backgroundColor: '#18b4f5', padding: 7,borderRadius: 8}}>
-        <Text style={{fontSize: 14, color: 'white'}}>Private</Text>
+        <View style={styles.cont}>
+          <Text style={styles.head}>Address</Text>
+          <Text style={styles.sub}>Bani Gala, Islamabad</Text>
+          <TouchableOpacity style= {styles.locadd}>
+            <Entypo name="location-pin" size={18} color="#43a2e6" />
+            <Text style= {{color: '#43a2e6', marginLeft: 2}} onPress={() => location('Bani Gala, Islamabad')}
+            >View on map</Text>
+        </TouchableOpacity>
         </View>
-        </View>
-        <Text style={styles.sub}>Noor Hospital, Islamabad</Text>
       </View>
       <View style={styles.btn}>
         <TouchableOpacity style= {styles.cons} mode="contained" 
-        onPress={() => (navigation.push('EditDocProfile'))}>
+        onPress={() => (navigation.push('EditPatientProfile'))}>
           <Text style={styles.btnTxt}>Edit Profile</Text>
         </TouchableOpacity>
         </View>
@@ -113,5 +117,10 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 18,
     fontWeight: 'bold',
-  }
+  },
+  locadd:{
+    flexDirection:'row',
+    marginTop: 2,
+    color:'blue'
+  },
 });

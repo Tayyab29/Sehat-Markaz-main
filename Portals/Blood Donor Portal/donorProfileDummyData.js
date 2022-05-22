@@ -1,11 +1,52 @@
-const donors = {
+const donors =[{
   id: "1",
   name: "Kamran Warraich",
   bloodGroup: "A+",
   city: "Street 7A, Royal Avenue, Islamabad",
   age: "22",
   contact: "03129904866",
+  bottles: 5,
   photo: "kami.jpeg",
-};
+},
+{
+  id: "2",
+  name: "M Tayyab Khazain",
+  bloodGroup: "A+",
+  city: "Street 7A, Royal Avenue, Islamabad",
+  age: "18",
+  bottles: 2,
+  contact: "03175793529",
+  photo: "kami.jpeg",
+},
+{
+  id: "3",
+  name: "Naveed Ahmed",
+  bloodGroup: "A+",
+  city: "Street 7A, Royal Avenue, Islamabad",
+  age: "24",
+  bottles: 1,
+  contact: "03129904866",
+  photo: "kami.jpeg",
+},
+{
+  id: "4",
+  name: "M Zaman Qadir",
+  bloodGroup: "A+",
+  city: "Street 7A, Royal Avenue, Islamabad",
+  age: "40",
+  bottles: 4,
+  contact: "03125219040",
+  photo: "kami.jpeg",
+},{
+  id: "5",
+  name: "Usman Yousaf",
+  bloodGroup: "A+",
+  city: "Street 7A, Royal Avenue, Islamabad",
+  age: "30",
+  bottles: 2,
+  contact: "03335129647",
+  photo: "kami.jpeg",
+},
+]
 
 export default donors;

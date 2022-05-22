@@ -12,27 +12,32 @@ import {
 } from "react-native";
 import { useTheme } from "react-native-paper";
 import { Avatar } from "react-native-paper";
-import { Entypo, Fontisto } from "@expo/vector-icons";
+import { Entypo } from "@expo/vector-icons";
 import { Picker } from "@react-native-picker/picker";
 import * as ImagePicker from "expo-image-picker";
 import * as Permissions from "expo-permissions";
 import { AntDesign } from "@expo/vector-icons";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
-import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import Feather from "react-native-vector-icons/Feather";
-//import * as ImagePicker from "expo-image-picker";
+import Fontisto from "react-native-vector-icons/Fontisto";
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import { FontAwesome5 } from "@expo/vector-icons";
+import MIcon from "react-native-vector-icons/MaterialIcons";
+import SIcon from "react-native-vector-icons/SimpleLineIcons"; 
 import axios from "axios";
-import url from "../../url.json";
+import url from "../.././url.json";
 
-export default function EditLabProfile({ route }) {
-  // const [data, setData] = useState("");
-  // const [edit, setEdit] = useState(false);
+export default function EditDonorProfile({ route }) {
+//   const [data, setData] = useState("");
+//   const [edit, setEdit] = useState(false);
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
   const [contact, setContact] = useState("");
+  const [faname, setFaname] = useState("");
   const [email, setEmail] = useState("");
-  const [own, setOwn] = useState("");
+  const [bloodgroup, setBloodgrpoup] = useState("");
+  const [gender, setGender] = useState("");
   const [profile_pic, setImage] = useState(
     "https://image.shutterstock.com/image-vector/default-avatar-profile-icon-vector-260nw-1725655669.jpg"
   );
@@ -142,10 +147,9 @@ export default function EditLabProfile({ route }) {
           </View>
         </View>
       </View>
-      
       <View style={styles.main}>
-      <View style={styles.action}>
-          <FontAwesome name="user" color={colors.text} size={26} />
+        <View style={styles.action}>
+          <FontAwesome name="user-o" color={colors.text} size={26} />
           <TextInput
             placeholder="Name"
             placeholderTextColor="#666666"
@@ -159,25 +163,10 @@ export default function EditLabProfile({ route }) {
           />
         </View>
         <View style={styles.action}>
-          <Fontisto name="laboratory" color={colors.text} size={26} />
+          <FontAwesome name="user-o" color={colors.text} size={26} />
           <TextInput
-            placeholder="Lanoratory Name"
+            placeholder="Father Name"
             placeholderTextColor="#666666"
-            autoCorrect={false}
-            style={[
-              styles.textInput,
-              {
-                color: colors.text,
-              },
-            ]}
-          />
-        </View>
-        <View style={styles.action}>
-          <Feather name="phone" color={colors.text} size={26} />
-          <TextInput
-            placeholder="Phone"
-            placeholderTextColor="#666666"
-            keyboardType="number-pad"
             autoCorrect={false}
             style={[
               styles.textInput,
@@ -203,7 +192,51 @@ export default function EditLabProfile({ route }) {
           />
         </View>
         <View style={styles.action}>
-          <Icon name="map-marker-outline" color={colors.text} size={26} />
+          <Feather name="phone" color={colors.text} size={26} />
+          <TextInput
+            placeholder="Phone"
+            placeholderTextColor="#666666"
+            keyboardType="number-pad"
+            autoCorrect={false}
+            style={[
+              styles.textInput,
+              {
+                color: colors.text,
+              },
+            ]}
+          />
+        </View>
+        <View style={styles.action}>
+        <Ionicons name="water" color={colors.text} size={26} />
+          <TextInput
+            placeholder="Blood Group"
+            placeholderTextColor="#666666"
+            autoCorrect={false}
+            style={[
+              styles.textInput,
+              {
+                color: colors.text,
+              },
+            ]}
+          />
+        </View>
+        <View style={styles.action}>
+          <Fontisto name="genderless" color={colors.text} size={26} />
+          <TextInput
+            placeholder="Gender"
+            placeholderTextColor="#666666"
+            autoCorrect={false}
+            style={[
+              styles.textInput,
+              {
+                color: colors.text,
+              },
+            ]}
+          />
+        </View>
+
+        <View style={styles.action}>
+          <MIcon name="edit-location" color={colors.text} size={26} />
           <TextInput
             placeholder="Address"
             placeholderTextColor="#666666"
@@ -232,7 +265,7 @@ export default function EditLabProfile({ route }) {
 
 const styles = StyleSheet.create({
   container: {
-    // marginHorizontal: 10,
+    marginHorizontal: 10,
     backgroundColor: '#ffff'
   },
   uploadImageContainer: {
@@ -270,9 +303,52 @@ const styles = StyleSheet.create({
   commandButton: {
     padding: 15,
     borderRadius: 10,
-    backgroundColor: "#f5a849",
+    backgroundColor: "#eb3838",
     alignItems: "center",
     marginTop: 10,
+  },
+  panel: {
+    padding: 20,
+    backgroundColor: "#FFFFFF",
+    paddingTop: 20,
+  },
+  header: {
+    backgroundColor: "#FFFFFF",
+    shadowColor: "#333333",
+    shadowOffset: { width: -1, height: -3 },
+    shadowRadius: 2,
+    shadowOpacity: 0.4,
+    // elevation: 5,
+    paddingTop: 20,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+  },
+  panelHeader: {
+    alignItems: "center",
+  },
+  panelHandle: {
+    width: 40,
+    height: 8,
+    borderRadius: 4,
+    backgroundColor: "#00000040",
+    marginBottom: 10,
+  },
+  panelTitle: {
+    fontSize: 27,
+    height: 35,
+  },
+  panelSubtitle: {
+    fontSize: 14,
+    color: "gray",
+    height: 30,
+    marginBottom: 10,
+  },
+  panelButton: {
+    padding: 13,
+    borderRadius: 10,
+    backgroundColor: "#FF6347",
+    alignItems: "center",
+    marginVertical: 7,
   },
   panelButtonTitle: {
     fontSize: 17,
@@ -285,6 +361,13 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     borderBottomWidth: 1,
     borderBottomColor: "#f2f2f2",
+    paddingBottom: 5,
+  },
+  actionError: {
+    flexDirection: "row",
+    marginTop: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: "#FF0000",
     paddingBottom: 5,
   },
   textInput: {

@@ -7,19 +7,21 @@ import {
   StyleSheet,
   FlatList
 } from 'react-native';
-import users from "../../src/screens/Doctor/DoctorData";
+import donors from './donorProfileDummyData';
 //import SearchBar from '../components/SearchBar'
 import { Avatar } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import EIcon from 'react-native-vector-icons/Entypo';
 
-export default function DocAppoint({ navigation }) {
+export default function BloodRequest({ navigation }) {
   return (
     <View style= {styles.container}>
       <FlatList 
-            data = {users}
+            data = {donors}
             renderItem = {(itemData) =>(
-        <View style={styles.card} >
+        <TouchableOpacity style={styles.card}
+            onPress={() =>
+            navigation.push("RequesterDetail", { bd: itemData.item }) }>
             <View style = {{flexDirection: 'row',}}>
             <View style={styles.cardImgWrapper}>
             <Avatar.Image
@@ -31,31 +33,12 @@ export default function DocAppoint({ navigation }) {
             <View style={styles.cardInfo}>
                 <Text style={styles.cardTitle}>{itemData.item.name}</Text>
                 <Text style={styles.cardDetails}>
-                    {itemData.item.category}{"\n"}
-                {/* Experince: {itemData.item.experience} */}
+                    Blood Group: {itemData.item.bloodGroup}{"\n"}
+                    {itemData.item.city}
                 </Text>
             </View>
             </View>
-            <View 
-              style = {{flexDirection: 'row',
-                        backgroundColor: '#ffff', 
-                        justifyContent: 'space-evenly', 
-                        padding: 5
-                        }}>
-            <View style ={{flexDirection: 'row'}}>
-                <Icon name="calendar-alt" size={19} color="#57D4EB" />
-                <Text style = {{marginLeft: 7, fontSize:15,fontWeight:'bold', color: '#3c3c3d'}}> 20/04/2020</Text>
-            </View>
-            <View style ={{flexDirection: 'row'}}>
-                <Icon name="clock" size={19} color="#57D4EB" />
-                <Text style = {{marginLeft: 7, fontSize:15,fontWeight:'bold', color: '#3c3c3d'}}> 11:00 </Text>
-            </View>
-            <View style ={{flexDirection: 'row'}}>
-                <EIcon name="dot-single" size={19} color="#57D4EB" />
-                <Text style = {{marginLeft: 0, fontSize:15,fontWeight:'bold', color: '#3c3c3d'}}> Unconfirmed </Text>
-            </View>
-            </View>
-            <View style ={{paddingBottom: 10,
+            {/* <View style ={{paddingBottom: 10,
                            paddingTop: 5, 
                            flexDirection: 'row',
                           justifyContent: 'space-around', 
@@ -71,8 +54,8 @@ export default function DocAppoint({ navigation }) {
                 onPress={() => {''} }>
                 <Text style={styles.btnTxt}> Accept</Text>
             </TouchableOpacity>
-            </View>
-        </View> 
+            </View> */}
+        </TouchableOpacity> 
   
     )}
       />
@@ -92,9 +75,8 @@ const styles = StyleSheet.create({
     width: '90%',
     alignSelf: 'center',
     height: 90,
-    marginTop: 15,
-    marginBottom: 85,
-    //marginVertical: 25,
+    marginTop: 10,
+    marginBottom: 10,
     borderTopLeftRadius:6, 
     borderTopRightRadius:6 ,
     shadowColor: '#999',
@@ -119,10 +101,10 @@ const styles = StyleSheet.create({
     padding: 10,
     borderLeftWidth: 0,
     paddingTop:10,
+    backgroundColor: '#fff',
     justifyContent:'center',
     borderBottomRightRadius: 8,
     borderTopRightRadius: 8,
-    // backgroundColor: '#fff',
   },
   cardTitle: {
     fontWeight: 'bold',
@@ -134,7 +116,7 @@ const styles = StyleSheet.create({
     color: '#444',
   },
   cons: {
-    backgroundColor: '#18b4f5',
+    backgroundColor: '#eb3838',
     width: '35%',
     justifyContent: 'center',
     alignSelf: 'center',

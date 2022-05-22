@@ -25,7 +25,7 @@ const Home = ({navigation}) => {
                     style={{
                         height:10,
                         width:20,
-                        marginTop:50
+                        marginTop:'8%'
                     }}
                />
                <View style={{
@@ -54,7 +54,7 @@ const Home = ({navigation}) => {
             style={{
                 left:0,
                 right:0,
-                height:90,
+                height:50,
                 marginTop:-45
             }}
            >
@@ -158,7 +158,7 @@ const Home = ({navigation}) => {
                     </TouchableOpacity>
 
                     <TouchableOpacity 
-                        // onPress={()=>navigation.navigate("Detail")}
+                        onPress={()=>navigation.navigate("PendingOrder")}
                         style={{
                             height:150,
                             elevation:2,

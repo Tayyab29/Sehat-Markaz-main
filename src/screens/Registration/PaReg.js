@@ -33,7 +33,8 @@ const PaReg = ( {props, navigation, route}) => {
 
   return (
     <View style= {styles.container}>
-      <ScrollView style= {styles.head}>
+      <ScrollView style= {styles.head}
+      showsVerticalScrollIndicator={false}>
       <View style= {styles.headcon}>
       <Header>Add Details</Header>
 

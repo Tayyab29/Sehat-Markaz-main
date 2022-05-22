@@ -40,7 +40,7 @@ const HomeLab = ({ navigation }) => {
           style={{
             flexDirection: "row",
             alignItems: "center",
-            marginTop: 25,
+            marginTop: 5,
             width: "100%",
           }}
         >
@@ -68,7 +68,7 @@ const HomeLab = ({ navigation }) => {
         style={{
           left: 0,
           right: 0,
-          height: 90,
+          height: 50,
           marginTop: -45,
         }}
       >
@@ -123,7 +123,7 @@ const HomeLab = ({ navigation }) => {
           </TouchableOpacity>
 
           <TouchableOpacity
-            // onPress={()=>navigation.navigate("Detail")}
+            onPress={()=>navigation.navigate("AvailableTest")}
             style={{
               height: 150,
               elevation: 2,
@@ -149,7 +149,7 @@ const HomeLab = ({ navigation }) => {
                   fontWeight: "bold",
                 }}
               >
-                Lab
+                Lab Test
               </Text>
             </View>
           </TouchableOpacity>
@@ -157,7 +157,7 @@ const HomeLab = ({ navigation }) => {
 
         <View style = {{flexDirection: 'row',justifyContent:'space-evenly'}}>
           <TouchableOpacity
-            // onPress={() => navigation.navigate("Detail")}
+            onPress={() => navigation.navigate("LabAppoint")}
             style={{
               height: 150,
               elevation: 2,

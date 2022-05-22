@@ -11,7 +11,7 @@ import { Dashboard, NotificationsTab } from "./User";
 import MyAppoint from './myappoint';
 //import PharmacyManagementProfile from "../../Portals/Pharmacy Management Portal/pharmacyManagementProfile";
 import ProfileScreen from "../../Portals/Pharmacy Management Portal/Profilephar";
-import PatientProfile from "./PatientProfile";
+import PatientProfile from "./Patient/PatientProfile";
 
 
 const Tab = createBottomTabNavigator();

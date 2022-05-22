@@ -26,6 +26,8 @@ import MyAppoint from "./myappoint";
 import DocDetails from "./Doctor/DocDetails";
 import Schedule from "./Doctor/Schedule";
 import BookDoc from "./Doctor/bookDoc";
+import PatientProfile from "./Patient/PatientProfile";
+import EditPatientProfile from "./Patient/EditPatientProfile";
 
 //For Ambulance Services Screens
 import Ambulance from "./Ambulance/start";
@@ -68,8 +70,11 @@ import UpdateMed from "../../Portals/Pharmacy Management Portal/UpdateMed";
 
 //For Blood Donor Portal
 import StartBloodDonorPortal from "../../Portals/Blood Donor Portal/start";
-import BloodDonorProfile from "../../Portals/Blood Donor Portal/donorProfile";
 import HomeBlood from "../../Portals/Blood Donor Portal/HomeBlood";
+import BloodRequest from "../../Portals/Blood Donor Portal/BloodRequest";
+import BloodDonorProfile from "../../Portals/Blood Donor Portal/BloodDonorProfile";
+import EditDonorProfile from "../../Portals/Blood Donor Portal/EditDonorProfile";
+import RequesterDetail from "../../Portals/Blood Donor Portal/RequesterDetail";
 
 //For Lab Management Portal
 import StartLabManagementPortal from "../../Portals/Lab Management Portal/start";
@@ -77,12 +82,24 @@ import LabManagementProfile from "../../Portals/Lab Management Portal/labManagem
 import HomeLab from "../../Portals/Lab Management Portal/HomeLab";
 import LabProfile from "../../Portals/Lab Management Portal/LabProfile";
 import EditLabProfile from "../../Portals/Lab Management Portal/EditLabProfile";
+import AddLabTest from "../../Portals/Lab Management Portal/addLabTest";
+import UpdateLabTest from "../../Portals/Lab Management Portal/UpdateLabTest";
+import LabAppoint from "../../Portals/Lab Management Portal/LabAppoint";
+import AvailableTest from "../../Portals/Lab Management Portal/AvailableTest";
+
 
 //For Ambulance Management Portal
 import StartAmbulanceServiceProvider from "../../Portals/Ambulance Service Provider Portal/start";
 import AmbulanceServiceProviderProfile from "../../Portals/Ambulance Service Provider Portal/ambServiceProviderProfile";
 import HomeAmb from "../../Portals/Ambulance Service Provider Portal/HomeAmb";
+import EditAmbuProfile from "../../Portals/Ambulance Service Provider Portal/EditAmbuProfile";
 import AmbuProfile from "../../Portals/Ambulance Service Provider Portal/AmbuProfile";
+import AmbuRequest from "../../Portals/Ambulance Service Provider Portal/AmbuRequest";
+import AmbuRequesterDetail from "../../Portals/Ambulance Service Provider Portal/AmbuRequesterDetail";
+import AvailableAmbulance from "../../Portals/Ambulance Service Provider Portal/AvailableAmbulance";
+import AddAmbulance from "../../Portals/Ambulance Service Provider Portal/addAmbulance";
+import AvailableAmbulanceDetail from "../../Portals/Ambulance Service Provider Portal/AvailableAmbulanceDetail";
+import UpdateAmbulance from "../../Portals/Ambulance Service Provider Portal/UpdateAmbulance";
 
 import GeocodingScreen from "./Location";
 import CurrentLocation from "./CurrentLocation";
@@ -95,7 +112,11 @@ import DocaddMed from "../../Portals/Doctor Management Portal/DocaddMed";
 import DocAppoint from "../../Portals/Doctor Management Portal/DocAppoint";
 import DocProfilePanel from "../../Portals/Doctor Management Portal/DocProfilePanel";
 import EditDocProfile from "../../Portals/Doctor Management Portal/EditDocProfile";
-import PatientProfile from "./PatientProfile";
+import PendingOrder from "../../Portals/Pharmacy Management Portal/PendingOrder";
+import BuyerDetail from "../../Portals/Pharmacy Management Portal/BuyerDetail";
+import CheckNotification from "./CheckNotification";
+import Multi from "./MultiSelect";
+
 
 
 
@@ -122,6 +143,16 @@ const StackNav = ({ navigation }) => {
             },
           }}
         >
+          <Stack.Screen
+              name="Multi"
+              component={Multi}
+              options={{ header: () => null }}
+            />
+          <Stack.Screen
+              name="CheckNotification"
+              component={CheckNotification}
+              options={{ header: () => null }}
+            />
           {/* Login */}
           <Stack.Group>
             <Stack.Screen
@@ -416,10 +447,15 @@ const StackNav = ({ navigation }) => {
           }}
         />
         <Stack.Screen
-              name="PatientProfile"
-              component={PatientProfile}
-              options={{ headerShown: false }}
-            />
+          name="PatientProfile"
+          component={PatientProfile}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="EditPatientProfile"
+          component={EditPatientProfile}
+          options={{ headerShown: false }}
+        />
           </Stack.Group>
 
           <Stack.Group>
@@ -465,6 +501,16 @@ const StackNav = ({ navigation }) => {
               component={UpdateMed}
               options={{ headerShown: false }}
             />
+            <Stack.Screen
+              name="PendingOrder"
+              component={PendingOrder}
+              options={{ title: 'New Orders', headerShown: true }}
+            />
+            <Stack.Screen
+              name="BuyerDetail"
+              component={BuyerDetail}
+              options={{ title: 'Order Detail', headerShown: true }}
+            />
           </Stack.Group>
 
           <Stack.Group>
@@ -473,16 +519,30 @@ const StackNav = ({ navigation }) => {
               component={StartBloodDonorPortal}
               options={{ headerShown: false }}
             />
-
-            <Stack.Screen
-              name="BloodDonorProfile"
-              component={BloodDonorProfile}
-              options={{ title: "Profile" }}
-            />
             <Stack.Screen
               name="HomeBlood"
               component={HomeBlood}
               options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="BloodRequest"
+              component={BloodRequest}
+              options={{ title: 'Blood Request', headerShown: true }}
+            />
+            <Stack.Screen
+              name="BloodDonorProfile"
+              component={BloodDonorProfile}
+              options={{ title: 'Blood Request', headerShown: true }}
+            />
+            <Stack.Screen
+              name="EditDonorProfile"
+              component={EditDonorProfile}
+              options={{ title: 'Edit Profile', headerShown: true }}
+            />
+            <Stack.Screen
+              name="RequesterDetail"
+              component={RequesterDetail}
+              options={{ title: 'Requester Details', headerShown: true }}
             />
           </Stack.Group>
 
@@ -513,6 +573,26 @@ const StackNav = ({ navigation }) => {
               component={EditLabProfile}
               options={{ headerShown: false }}
             />
+            <Stack.Screen
+              name="addLabTest"
+              component={AddLabTest}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="UpdateLabTest"
+              component={UpdateLabTest}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="LabAppoint"
+              component={LabAppoint}
+              options={{title: 'Appointments', headerShown: true }}
+            />
+            <Stack.Screen
+              name="AvailableTest"
+              component={AvailableTest}
+              options={{ headerShown: true }}
+            />
           </Stack.Group>
 
           <Stack.Group>
@@ -536,6 +616,41 @@ const StackNav = ({ navigation }) => {
               name="AmbuProfile"
               component={AmbuProfile}
               options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="EditAmbuProfile"
+              component={EditAmbuProfile}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="AmbuRequest"
+              component={AmbuRequest}
+              options={{title: 'Pending Request', headerShown: true }}
+            />
+            <Stack.Screen
+              name="AmbuRequesterDetail"
+              component={AmbuRequesterDetail}
+              options={{ title: 'Requester Details', headerShown: true }}
+            />
+            <Stack.Screen
+              name="AvailableAmbulance"
+              component={AvailableAmbulance}
+              options={{ title: 'Ambulance Cars', headerShown: true }}
+            />
+            <Stack.Screen
+              name="AddAmbulance"
+              component={AddAmbulance}
+              options={{ title: 'Add Ambulance Car', headerShown: true }}
+            />
+            <Stack.Screen
+              name="UpdateAmbulance"
+              component={UpdateAmbulance}
+              options={{ title: 'Update Ambulance Car', headerShown: true }}
+            />
+            <Stack.Screen
+              name="AvailableAmbulanceDetail"
+              component={AvailableAmbulanceDetail}
+              options={{ title: 'Ambulance Detail', headerShown: true }}
             />
           </Stack.Group>
           <Stack.Group>

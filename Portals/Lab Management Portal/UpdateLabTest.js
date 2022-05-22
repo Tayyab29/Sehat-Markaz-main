@@ -3,24 +3,23 @@ import {ScrollView, View, StyleSheet, TouchableOpacity,Alert, Modal, Image, Stat
 import { Text } from 'react-native-paper';
 import Button from '../../src/screens/components/Button';
 import TextInputR from '../../src/screens/components/TextInputR';
-import DescriptionInput from '../../src/screens/components/DescriptionInput';
 import { theme } from '../../src/screens/core/theme';
 import {emptyfield } from '../../src/screens/helpers/emptyfield';
 
 
-const UpdateMed = ( {navigation}) => {
-  const [quantity, setQuantity] = useState({ value: '', error: '' });
+const UpdateLabTest = ( {navigation}) => {
+  const [name, setName] = useState({ value: '', error: '' });
   const [price, setPrice] = useState({ value: '', error: '' });
   const [description, setDescription] = useState({ value: '', error: '' });
 
 
   const _onSignUpPressed = () => {
-    const nameError = emptyfield(quantity.value);
+    const nameError = emptyfield(name.value);
     const priceError = emptyfield(price.value);
     const descriptionError = emptyfield(description.value);
 
     if (priceError || descriptionError || nameError) {
-      setQuantity({ ...quantity, error: nameError });
+      setName({ ...name, error: nameError });
       setPrice({ ...price, error: companyError });
       setDescription({ ...description, error: countryError });
       return;
@@ -35,15 +34,15 @@ const UpdateMed = ( {navigation}) => {
       <ScrollView style= {styles.head}
       showsVerticalScrollIndicator={false}>
       <View style= {styles.headcon}>
-      <Text style = {{color: '#43ba63', fontSize:22,fontWeight: 'bold'}}>Update Medicine </Text>
+      <Text style = {{color: '#f5a849', fontSize:22,fontWeight: 'bold'}}> Lab Test </Text>
 
       <TextInputR
-        label="Quantity"
+        label="Report Name"
         returnKeyType="next"
-        value={quantity.value}
-        onChangeText={text => setQuantity({ value: text, error: '' })}
-        error={!!quantity.error}
-        errorText={quantity.error}
+        value={name.value}
+        onChangeText={text => setName({ value: text, error: '' })}
+        error={!!name.error}
+        errorText={name.error}
         
       />
       <TextInputR
@@ -54,8 +53,8 @@ const UpdateMed = ( {navigation}) => {
         error={!!price.error}
         errorText={price.error}
       />
-      <DescriptionInput
-        label="Description"
+      <TextInputR
+        label="Specification"
         returnKeyType="next"
         value={description.value}
         onChangeText={text => setDescription({ value: text, error: '' })}
@@ -88,7 +87,7 @@ const styles = StyleSheet.create({
   },
   headcon: {
     alignItems: 'center',
-    marginTop: '7%'
+    marginTop: 50
   },
   row: {
     flexDirection: 'row',
@@ -106,7 +105,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#e9f0ef'
   },
   cons: {
-    backgroundColor: '#43ba63',
+    backgroundColor: '#f5a849',
     width: '80%',
     flexDirection: 'row',
     justifyContent: 'center',
@@ -130,4 +129,4 @@ ratxt: {
 },
 });
 
-export default UpdateMed;
+export default UpdateLabTest;

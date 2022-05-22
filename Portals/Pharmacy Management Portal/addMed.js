@@ -4,9 +4,6 @@ import { Text } from 'react-native-paper';
 import Button from '../../src/screens/components/Button';
 import TextInputR from '../../src/screens/components/TextInputR';
 import { theme } from '../../src/screens/core/theme';
-// import { emailValidator } from '../helpers/emailValidator';
-// import { passwordValidator } from '../helpers/passwordValidator';
-// import { nameValidator } from '../helpers/nameValidator';
 import {emptyfield } from '../../src/screens/helpers/emptyfield';
 import * as ImagePicker from 'expo-image-picker';
 import {Picker} from '@react-native-picker/picker';
@@ -107,7 +104,7 @@ const AddMed = ( {navigation}) => {
       <ScrollView style= {styles.head}
       showsVerticalScrollIndicator={false}>
       <View style= {styles.headcon}>
-      <Text style = {{color: '#43ba63', fontSize:22,fontWeight: 'bold'}}>Add Medicine</Text>
+      <Text style = {{color: '#43ba63', fontSize:22,fontWeight: 'bold'}}>Add Medicine to System</Text>
 
       <TextInputR
         label="Name"
@@ -193,20 +190,20 @@ const AddMed = ( {navigation}) => {
             mode="contained"
             icon = 'camera'
             onPress = {pickfromCamera}
-            style={{marginTop: 10, alignSelf: 'center', color: "#43ba63" }}>
+            style={{marginTop: 10, alignSelf: 'center', backgroundColor: '#43ba63' }}>
             Camera
           </Button>
           <Button
             mode="contained"
             icon = 'image-area'
             onPress = {pickfromGallery}
-            style={{marginTop: 10, alignSelf: 'center' }}>
+            style={{marginTop: 10, alignSelf: 'center', backgroundColor: '#43ba63' }}>
             Gallery
           </Button>
           <Button
             mode="contained"
             onPress = {()=> setModalVisible(!modalVisible)}
-            style={{marginTop: 10, alignSelf: 'center' }}>
+            style={{marginTop: 10, alignSelf: 'center', backgroundColor: '#43ba63' }}>
             Cancel
           </Button>
           </View>
@@ -238,7 +235,7 @@ const styles = StyleSheet.create({
   },
   headcon: {
     alignItems: 'center',
-    marginTop: 50
+    marginTop: '7%'
   },
   row: {
     flexDirection: 'row',

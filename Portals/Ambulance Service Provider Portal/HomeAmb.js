@@ -4,6 +4,7 @@ import {TextInput,ScrollView,TouchableOpacity} from 'react-native-gesture-handle
 import { LinearGradient } from 'expo-linear-gradient'
 import Icon from 'react-native-vector-icons/FontAwesome';
 import MIcon from 'react-native-vector-icons/MaterialCommunityIcons';
+import MaIcon from "react-native-vector-icons/MaterialIcons";
 
 const HomeAmb = ({navigation}) => {
     return(
@@ -23,7 +24,7 @@ const HomeAmb = ({navigation}) => {
                     style={{
                         height:10,
                         width:20,
-                        marginTop:25
+                        marginTop:'8%'
                     }}
                />
                <View style={{
@@ -41,7 +42,7 @@ const HomeAmb = ({navigation}) => {
                    </View>
                    <View style={{width:"40%",alignItems:"flex-end"}}>
                         <Image
-                           source={require('../assets/sehat-markaz.png')}
+                           source={require('../assets/sehatblacklog.png')}
                             style={{height:85,width:85}}
                         />
                    </View>
@@ -52,7 +53,7 @@ const HomeAmb = ({navigation}) => {
             style={{
                 left:0,
                 right:0,
-                height:90,
+                height:50,
                 marginTop:-45
             }}
            >
@@ -87,7 +88,7 @@ const HomeAmb = ({navigation}) => {
                             width:160
                         }}
                     >
-                        <Icon name="user-md" size= {70} color= '#e64c4c' />
+                        <Icon name="user" size= {70} color= '#e64c4c' />
                         <View style={{
                             flexDirection:"row",
                             paddingTop:10,
@@ -127,6 +128,59 @@ const HomeAmb = ({navigation}) => {
                     </TouchableOpacity>
                 </View>
 
+                <View style = {{flexDirection: 'row',justifyContent:'space-evenly'}}>
+                    <TouchableOpacity 
+                        onPress={()=>navigation.navigate("AmbuRequest")}
+                        style={{
+                            height:150,
+                            elevation:2,
+                            backgroundColor:"#FFF",
+                            alignItems:'center',
+                            justifyContent:'center',
+                            marginTop:20,
+                            borderRadius:15,
+                            marginBottom:10,
+                            width:160
+                        }}
+                    >
+                        <MaIcon name="pending-actions" size= {70} color= '#e64c4c'  />
+                        <View style={{
+                            flexDirection:"row",
+                            paddingTop:10,
+                            paddingHorizontal:10
+                        }}>
+                            <Text style={{
+                                fontWeight:"bold"
+                            }}>Pending Request</Text>
+                        </View>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity 
+                        onPress={()=>navigation.navigate("AvailableAmbulance")}
+                        style={{
+                            height:150,
+                            elevation:2,
+                            backgroundColor:"#FFF",
+                            alignItems:'center',
+                            justifyContent:'center',
+                            marginTop:20,
+                            borderRadius:15,
+                            marginBottom:10,
+                            width:160
+                        }}
+                    >
+                        <Icon name="ambulance" size= {65} color= '#e64c4c'  />
+                        <View style={{
+                            flexDirection:"row",
+                            paddingTop:10,
+                            paddingHorizontal:10
+                        }}>
+                            <Text style={{
+                                fontWeight:"bold"
+                            }}>Ambulance</Text>
+                        </View>
+                    </TouchableOpacity>
+                </View>
                 <View style = {{flexDirection: 'row',justifyContent:'space-evenly'}}>
                     <TouchableOpacity 
                         // onPress={'()=>navigation.navigate("Detail")'}
@@ -179,9 +233,8 @@ const HomeAmb = ({navigation}) => {
                             }}>Logout</Text>
                         </View>
                     </TouchableOpacity>
-                </View>
-
-                </ScrollView>            
+                </View>              
+            </ScrollView>            
         </View>
     )
 }

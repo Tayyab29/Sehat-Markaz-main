@@ -25,7 +25,7 @@ const HomeDoc = ({navigation}) => {
                     style={{
                         height:10,
                         width:20,
-                        marginTop:50
+                        marginTop:'8%'
                     }}
                />
                <View style={{
@@ -67,7 +67,7 @@ const HomeDoc = ({navigation}) => {
             style={{
                 left:0,
                 right:0,
-                height:90,
+                height:50,
                 marginTop:-45
             }}
            >

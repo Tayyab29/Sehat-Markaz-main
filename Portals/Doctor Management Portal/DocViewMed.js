@@ -164,7 +164,7 @@ const style = StyleSheet.create({
     padding: 15,
   },
   header: {
-    marginTop: 60,
+    marginTop: '8%',
     flexDirection: 'row',
     justifyContent: 'space-between',
   },

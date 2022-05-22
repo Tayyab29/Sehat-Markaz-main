@@ -3,11 +3,14 @@ import { View, StyleSheet, Text } from 'react-native'
 import { TextInput as Input } from 'react-native-paper'
 import { theme } from '../core/theme'
 
-export default function TextInputR({ errorText, description, ...props }) {
+export default function DescriptionInput({ errorText, description, ...props }) {
   return (
     <View style={styles.container}>
       <Input
         style={styles.input}
+        multiline =  {true}
+        numberOfLines = {3}
+        maxLength={100}
         selectionColor = {theme.colors.black}
         activeOutlineColor={theme.colors.black}
         underlineColor="transparent"
