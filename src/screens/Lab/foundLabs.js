@@ -45,33 +45,6 @@ export default function FoundLabs({ navigation, route }) {
         </View>
       </TouchableOpacity>
 
-{/* //       <FlatList
-//         data={Data}
-//         style={{ width: "90%" }}
-//         renderItem={(itemData) => {
-//           if (
-//             itemData.item.address.toUpperCase() ===
-//             route.params.add.toUpperCase()
-//           ) {
-//             return (
-//               <TouchableOpacity
-//                 onPress={() =>
-//                   navigation.navigate("PharmacyDetails", {
-//                     pharm: itemData.item,
-//                   })
-//                 }
-//                 style={styles.btn}
-//               >
-//                 <Text style={styles.btnTxt}>{itemData.item.name}</Text>
-//               </TouchableOpacity>
-//             );
-//           }
-//         }}
-//         keyExtractor={(itemData, index) => itemData._id}
-//       ></FlatList>
-//     </View>
-//   ) */}
-
       <FlatList
         data={Data}
         renderItem={(itemData) => {

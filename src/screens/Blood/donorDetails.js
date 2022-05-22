@@ -104,23 +104,6 @@ export default function DonorDetails({ route }) {
           </TouchableOpacity>
         </View>
 
-        {/* <View style={{ flexDirection: "row" }}>
-          <Text style={styles.keys}>Contact: </Text>
-          <View
-            style={{ flexDirection: "row", marginTop: "5%", marginLeft: 5 }}
-          >
-            <Entypo name="old-phone" size={18} color="black" />
-            <Text
-              style={styles.click}
-              onPress={() => {
-                Linking.openURL(`tel:${data.contact}`);
-              }}
-            >
-              {" "}
-              {data.contact}
-            </Text>
-          </View>
-        </View> */}
       </View>
     </View>
   );

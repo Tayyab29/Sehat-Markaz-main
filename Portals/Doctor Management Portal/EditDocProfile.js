@@ -33,6 +33,10 @@ export default function EditDocProfile({ route }) {
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
   const [contact, setContact] = useState("");
+  const [faname, setFaname] = useState("");
+  const [email, setEmail] = useState("");
+  const [bloodgroup, setBloodgrpoup] = useState("");
+  const [gender, setGender] = useState("");
   const [profile_pic, setImage] = useState(
     "https://image.shutterstock.com/image-vector/default-avatar-profile-icon-vector-260nw-1725655669.jpg"
   );

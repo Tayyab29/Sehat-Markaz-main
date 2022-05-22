@@ -21,19 +21,6 @@ export default function AmbulanceDetails({ navigation, route }) {
 
   return (
     <View style={styles.container}>
-      {/* <Text style={styles.txtName}>{route.params.pharm.name}</Text>
-      <Image source={ambulance} style={styles.img} />
-
-      <Text style={styles.addHead}>Address: </Text>
-      <View style={{ flexDirection: "row" }}>
-        <Entypo name="location-pin" size={24} color="black" />
-        <Text
-          style={styles.contactNum}
-          onPress={() => location(route.params.pharm.address)}
-        >
-          {route.params.pharm.address}
-        </Text>
-      </View> */}
       <View style = {{marginHorizontal: "5%",}}>
         <View style= {styles.cardsWrapper}>
               <TouchableOpacity style={styles.card} 
@@ -127,19 +114,6 @@ export default function AmbulanceDetails({ navigation, route }) {
           <Text style={styles.callbtntxt}>Call Now</Text>
         </TouchableOpacity>
       </View>
-
-      {/* <Text style={styles.txtCntc}>Contact: </Text>
-      <View style={{ flexDirection: "row", marginTop: 5 }}>
-        <Entypo name="old-phone" size={18} color="black" />
-        <Text
-          style={styles.contactNum}
-          onPress={() => {
-            Linking.openURL(`tel:${route.params.pharm.contact}`);
-          }}
-        >
-          {route.params.pharm.contact}
-        </Text>
-      </View> */}
       </View>
     </View>
   );
