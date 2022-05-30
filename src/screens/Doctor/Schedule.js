@@ -50,7 +50,7 @@ const Schedule = () => {
                 alignItems: 'center',
               }}>
               <Text>{item.name}</Text>
-              <Avatar.Text label="J" />
+              {/* <Avatar.Text label="J" /> */}
             </View>
           </Card.Content>
         </Card>
@@ -60,8 +60,7 @@ const Schedule = () => {
 
   return (
     <View style={{flex: 1}}>
-      <StatusBar></StatusBar>
-      <TouchableOpacity style={styles.card} 
+      {/* <TouchableOpacity style={styles.card} 
         onPress = {()=>(navigation.navigate('DocProfile'))}>
           <View style={styles.cardImgWrapper}>
           <Avatar.Image
@@ -77,14 +76,16 @@ const Schedule = () => {
               Experince: 10Years
             </Text>
           </View>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
 
-      <Text style={{fontSize:16, fontWeight:'bold', padding:4, marginLeft: 14}}>
-        Pick a day</Text>
+      {/* <Text style={{fontSize:16, fontWeight:'bold', padding:4, marginLeft: 14}}>
+        Pick a day</Text> */}
       <Agenda
         items={items}
         loadItemsForMonth={loadItems}
-        selected={'2022-04-26'}
+        pastScrollRange={5}
+        futureScrollRange={5}
+        // selected={'2022-04-26'}
         renderItem={renderItem}
       />
     </View>

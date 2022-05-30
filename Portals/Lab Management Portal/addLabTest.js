@@ -52,6 +52,7 @@ const AddLabTest = ( {navigation}) => {
         onChangeText={text => setPrice({ value: text, error: '' })}
         error={!!price.error}
         errorText={price.error}
+        keyboardType = 'numeric'
       />
       <TextInputR
         label="Specification"

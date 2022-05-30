@@ -9,8 +9,8 @@ export default function DescriptionInput({ errorText, description, ...props }) {
       <Input
         style={styles.input}
         multiline =  {true}
-        numberOfLines = {3}
-        maxLength={100}
+        numberOfLines = {4}
+        maxLength={150}
         selectionColor = {theme.colors.black}
         activeOutlineColor={theme.colors.black}
         underlineColor="transparent"

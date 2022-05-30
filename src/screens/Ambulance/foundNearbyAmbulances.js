@@ -34,7 +34,7 @@ export default function FoundNearbyAmbulances({ navigation, route }) {
         Ambulance Services in {route.params.add}
         </Text>
       </View>
-      <SearchBar/>
+      {/* <SearchBar/> */}
       <TouchableOpacity
         onPress={() => ('')}
         >
@@ -44,30 +44,6 @@ export default function FoundNearbyAmbulances({ navigation, route }) {
         </View>
       </TouchableOpacity>
 
-      {/* <FlatList
-        data={Data}
-        style={{ width: "90%" }}
-        renderItem={(itemData) => {
-          if (
-            itemData.item.address.toUpperCase() ===
-            route.params.add.toUpperCase()
-          ) {
-            return (
-              <TouchableOpacity
-                onPress={() =>
-                  navigation.navigate("AmbulanceDetails", {
-                    pharm: itemData.item,
-                  })
-                }
-                style={styles.btn}
-              >
-                <Text style={styles.btnTxt}>{itemData.item.name}</Text>
-              </TouchableOpacity>
-            );
-          }
-        }}
-        keyExtractor={(itemData, index) => itemData.id}
-      ></FlatList> */}
 
       <FlatList
         data={Data}
@@ -108,7 +84,6 @@ export default function FoundNearbyAmbulances({ navigation, route }) {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: "8%",
     flex: 1,
   },
   head: {
@@ -124,17 +99,6 @@ const styles = StyleSheet.create({
     color: "#000",
     fontWeight: "bold",
   },
-  // btn: {
-  //   padding: 25,
-  //   elevation: 3,
-  //   backgroundColor: "darkgray",
-  //   borderRadius: 10,
-  //   marginVertical: 10,
-  // },
-  // btnTxt: {
-  //   fontSize: 16,
-  // },
-
   locTxt:{
     marginHorizontal: 12,
     fontSize: 16,
@@ -147,6 +111,7 @@ const styles = StyleSheet.create({
     backgroundColor:'#d5e9f0',
     padding: 10,
     borderRadius: 10,
+    marginTop: 5,
     width: '90%',
     alignSelf: 'center'
   },

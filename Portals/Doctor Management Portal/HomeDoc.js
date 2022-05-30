@@ -101,9 +101,9 @@ const HomeDoc = ({navigation}) => {
                         marginBottom:10,
                         width:160
                     }}
-                    // onPress={()=>navigation.navigate("")}
+                    onPress={()=>navigation.navigate("DocProfilePanel")}
                     >
-                        <Icon name="calendar" size= {70} color= '#18b4f5' />
+                        <Icon name="user-md" size={70} color="#18b4f5" />
                         <View style={{
                             flexDirection:"row",
                             paddingTop:10,
@@ -112,7 +112,7 @@ const HomeDoc = ({navigation}) => {
                             <Text style={{
                                 fontWeight:"bold",
                                 alignItems: "center"
-                            }}>Schedule</Text>
+                            }}>Profile</Text>
                         </View>
                     </TouchableOpacity>
 
@@ -138,7 +138,7 @@ const HomeDoc = ({navigation}) => {
                         }}>
                             <Text style={{
                                 fontWeight:"bold"
-                            }}>View Appointments</Text>
+                            }}>Pending Appointments</Text>
                         </View>
                     </TouchableOpacity>
                 </View>
@@ -172,7 +172,7 @@ const HomeDoc = ({navigation}) => {
                     </TouchableOpacity>
 
                     <TouchableOpacity 
-                        // onPress={()=>navigation.navigate("Detail")}
+                        onPress={()=>navigation.navigate("BookedAppoint")}
                         style={{
                             height:150,
                             elevation:2,
@@ -185,7 +185,7 @@ const HomeDoc = ({navigation}) => {
                             width:160
                         }}
                     >
-                        <Fontisto name="prescription" size= {70} color= '#18b4f5'  />
+                        <MIcon name="calendar-check" size= {70} color= '#18b4f5'  />
                         <View style={{
                             flexDirection:"row",
                             paddingTop:10,
@@ -193,13 +193,13 @@ const HomeDoc = ({navigation}) => {
                         }}>
                             <Text style={{
                                 fontWeight:"bold"
-                            }}>Prescription</Text>
+                            }}>Booked Appointments</Text>
                         </View>
                     </TouchableOpacity>
                 </View>
                 <View style = {{flexDirection: 'row',justifyContent:'space-evenly'}}>
                      <TouchableOpacity 
-                        onPress={()=>navigation.navigate("DocProfilePanel")}
+                        // onPress={()=>navigation.navigate("DocProfilePanel")}
                         style={{
                             height:150,
                             elevation:2,
@@ -212,7 +212,7 @@ const HomeDoc = ({navigation}) => {
                             width:160
                         }}
                     >
-                        <Icon name="user-md" size={70} color="#18b4f5" />
+                        <Icon name="calendar" size= {70} color= '#18b4f5' />
                         <View style={{
                             flexDirection:"row",
                             paddingTop:10,
@@ -220,7 +220,7 @@ const HomeDoc = ({navigation}) => {
                         }}>
                             <Text style={{
                                 fontWeight:"bold"
-                            }}>Profile</Text>
+                            }}>Schedule</Text>
                         </View>
                     </TouchableOpacity> 
 

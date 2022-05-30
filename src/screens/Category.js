@@ -13,12 +13,17 @@ import {
       return(
           <View style={styles.container}>
             {/* <StatusBar backgroundColor="skyblue" translucent={true}/> */}
-            <SearchBar/>
-              <Text style={styles.txt}> Search by Specialty</Text>
+            {/* <SearchBar/> */}
+            {/* <TouchableOpacity onPress={() =>
+                    navigation.navigate('DocProfile', {title: ''})
+                    } >
+            <Text style={styles.txtdoc}> All Doctors</Text>
+            </TouchableOpacity> */}
+              <Text style={styles.txt}> Find Doctor by Specialty</Text>
 
               <View style= {styles.main}>
                     <TouchableOpacity style={styles.card} onPress={() =>
-                    navigation.navigate('DocProfile', {title: 'Doctor'})
+                    navigation.navigate('DocProfile', {title: 'Gynocalogist'})
                     } >
                     <Avatar.Image
                         source={require('./asset/gyno.png')}
@@ -30,7 +35,7 @@ import {
                         </Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.card}onPress={() =>
-                    navigation.navigate('DocProfile', {title: 'Doctor'})
+                    navigation.navigate('DocProfile', {title: 'Neurologist'})
                     }>
                     <Avatar.Image
                         source={require('./asset/neuro.png')}
@@ -44,7 +49,7 @@ import {
               </View>
               <View style= {styles.main}>
                     <TouchableOpacity style={styles.card} onPress={() =>
-                    navigation.navigate('DocProfile', {title: 'Doctor'})
+                    navigation.navigate('DocProfile', {title: 'Genral Physician'})
                     }>
                     <Avatar.Image
                         source={require('./asset/surgeon.png')}
@@ -56,7 +61,7 @@ import {
                         </Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.card} onPress={() =>
-                    navigation.navigate('DocProfile', {title: 'Doctor'})
+                    navigation.navigate('DocProfile', {title: 'Heart Surgeon'})
                     }>
                     <Avatar.Image
                         source={require('./asset/heart.png')}
@@ -70,7 +75,7 @@ import {
               </View>
               <View style= {styles.main}>
                     <TouchableOpacity style={styles.card} onPress={() =>
-                    navigation.navigate('DocProfile', {title: 'Doctor'})
+                    navigation.navigate('DocProfile', {title: 'Skin Specialist'})
                     }>
                     <Avatar.Image
                         source={require('./asset/skin.png')}
@@ -82,7 +87,7 @@ import {
                         </Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.card} onPress={() =>
-                    navigation.navigate('DocProfile', {title: 'Doctor'})
+                    navigation.navigate('DocProfile', {title: 'Dentist'})
                     }>
                     <Avatar.Image
                         source={require('./asset/dentist.png')}
@@ -96,7 +101,7 @@ import {
               </View>
               <View style= {styles.main}>
                     <TouchableOpacity style={styles.card} onPress={() =>
-                    navigation.navigate('DocProfile', {title: 'Doctor'})
+                    navigation.navigate('DocProfile', {title: 'Urologist'})
                     }>
                     <Avatar.Image
                         source={require('./asset/urology.png')}
@@ -108,7 +113,7 @@ import {
                         </Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.card} onPress={() =>
-                    navigation.navigate('DocProfile', {title: 'Doctor'})
+                    navigation.navigate('DocProfile', {title: 'Eye Specialist'})
                     }>
                     <Avatar.Image
                         source={require('./asset/eye2.png')}
@@ -122,7 +127,7 @@ import {
               </View>
               <View style= {styles.main}>
                     <TouchableOpacity style={styles.card} onPress={() =>
-                    navigation.navigate('DocProfile', {title: 'Doctor'})
+                    navigation.navigate('DocProfile', {title: 'Psychiatrist'})
                     }>
                     <Avatar.Image
                         source={require('./asset/psychiat.png')}
@@ -134,7 +139,7 @@ import {
                         </Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.card} onPress={() =>
-                    navigation.navigate('DocProfile', {title: 'Doctor'})
+                    navigation.navigate('DocProfile', {title: 'Diabetes'})
                     }>
                     <Avatar.Image
                         source={require('./asset/diabetes2.png')}
@@ -143,6 +148,84 @@ import {
                         />
                         <Text style= {styles.cardtext}>
                             Diabetes
+                        </Text>
+                    </TouchableOpacity>
+              </View>
+              <View style= {styles.main}>
+                    <TouchableOpacity style={styles.card} onPress={() =>
+                    navigation.navigate('DocProfile', {title: 'Allegry'})
+                    }>
+                    <Avatar.Image
+                        source={require('./asset/allergy.png')}
+                        style={styles.cardImg}
+                        size= {42}
+                        />
+                        <Text style= {styles.cardtext}>
+                            Allegry Specialist
+                        </Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.card} onPress={() =>
+                    navigation.navigate('DocProfile', {title: 'Cardilogist'})
+                    }>
+                    <Avatar.Image
+                        source={require('./asset/cardiology.png')}
+                        style={styles.cardImg}
+                        size= {42}
+                        />
+                        <Text style= {styles.cardtext}>
+                            Cardilogist
+                        </Text>
+                    </TouchableOpacity>
+              </View>
+              <View style= {styles.main}>
+                    <TouchableOpacity style={styles.card} onPress={() =>
+                    navigation.navigate('DocProfile', {title: 'Counselor'})
+                    }>
+                    <Avatar.Image
+                        source={require('./asset/counselor.png')}
+                        style={styles.cardImg}
+                        size= {42}
+                        />
+                        <Text style= {styles.cardtext}>
+                            Counselor
+                        </Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.card} onPress={() =>
+                    navigation.navigate('DocProfile', {title: 'Infection'})
+                    }>
+                    <Avatar.Image
+                        source={require('./asset/infection.png')}
+                        style={styles.cardImg}
+                        size= {42}
+                        />
+                        <Text style= {styles.cardtext}>
+                            Infection Diseases
+                        </Text>
+                    </TouchableOpacity>
+              </View>
+              <View style= {styles.main}>
+                    <TouchableOpacity style={styles.card} onPress={() =>
+                    navigation.navigate('DocProfile', {title: 'Paediatrician'})
+                    }>
+                    <Avatar.Image
+                        source={require('./asset/paedia.png')}
+                        style={styles.cardImg}
+                        size= {42}
+                        />
+                        <Text style= {styles.cardtext}>
+                            Paediatrician
+                        </Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.card} onPress={() =>
+                    navigation.navigate('DocProfile', {title: 'Physician'})
+                    }>
+                    <Avatar.Image
+                        source={require('./asset/physician.png')}
+                        style={styles.cardImg}
+                        size= {42}
+                        />
+                        <Text style= {styles.cardtext}>
+                             Physician
                         </Text>
                     </TouchableOpacity>
               </View>
@@ -156,10 +239,18 @@ import {
     container:{
         flex: 1
     },
+    txtdoc: {
+        fontWeight: '900',
+          fontSize: 19,
+          margin: 10,
+    },
       txt:{
           fontWeight: '900',
-          fontSize: 18,
-          margin: 10
+          fontSize: 16,
+          margin: 10,
+        //   backgroundColor: '#ffff',
+        //   padding: 10,
+        //   borderRadius:20
       },
       cardtext:{
           fontSize: 16,

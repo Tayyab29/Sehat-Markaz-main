@@ -32,7 +32,7 @@ export default function FoundLabs({ navigation, route }) {
 
   return (
     <View style={styles.container}>
-      <StatusBar/>
+      {/* <StatusBar/> */}
       <View style={styles.head}>
         <Text style={styles.txt}>Registered Labs in {route.params.add}</Text>
       </View>
@@ -84,10 +84,7 @@ export default function FoundLabs({ navigation, route }) {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: "8%",
     flex: 1,
-    //width: "90%",
-    //marginHorizontal: "5%",
   },
   head: {
     backgroundColor: "#f6f6f6",

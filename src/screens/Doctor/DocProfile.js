@@ -1,45 +1,96 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   View,
   Text,
   TouchableOpacity,
   Image,
   StyleSheet,
-  FlatList
+  FlatList,
+  TextInput
 } from 'react-native';
 import users from "./DoctorData";
 import SearchBar from '../components/SearchBar'
 import { Avatar } from 'react-native-paper';
+import Ionicons from "@expo/vector-icons/Ionicons";
 
-export default function DocProfile({ navigation }) {
+export default function DocProfile({ navigation, route }) {
+  const [input, setInput] = useState("");
+
+  const [docData, setDocData] = useState([]);
+
+  useEffect(() => {
+    setDocData(users);
+  }, [users]);
+
+  const searchData = (text) => {
+    // console.log("\n\nI typed: ", text)
+    const formattedQuery = text.toLowerCase();
+    const newData = users.filter((item) => {
+      return item.name.toLowerCase().search(formattedQuery) > -1;
+    });
+    // setFullData(newData);
+    setDocData(newData);
+    setInput(text);
+  };
+
   return (
     <View style= {styles.container}>
-        <SearchBar/>
-      <FlatList 
-            data = {users}
-            renderItem = {(itemData) =>(
-        <View style= {styles.cardsWrapper}>
-        <TouchableOpacity style={styles.card} 
-        onPress={() =>
-            navigation.push("DocDetails", { doc: itemData.item })
-          }>
-          <View style={styles.cardImgWrapper}>
-          <Avatar.Image
-            source={require('../asset/image.jpg')}
-            style={styles.cardImg}
-              size= {100}
-            />
+        <View style={styles.searchView}>
+          <View
+            style={{
+              flexDirection: "row",
+              height: 50,
+              alignItems: "center",
+            }}
+          >
+            <Ionicons name="search" size={28} color="#18b4f5" />
+            <TextInput
+              autoCapitalize="none"
+              autoCorrect={false}
+              // onChangeText={handleSearch}
+              onChangeText={(text) => searchData(text)}
+              value={input}
+              style={styles.searchInput}
+              placeholder="Search Doctors"
+              clearButtonMode="always"
+              keyboardAppearance="dark"
+              maxLength={30}
+            ></TextInput>
           </View>
-          <View style={styles.cardInfo}>
-            <Text style={styles.cardTitle}>Dr. {itemData.item.name}</Text>
-            <Text style={styles.cardDetails}>
-              Specialty: {itemData.item.category}{"\n"}
-              Experince: {itemData.item.experience}
-            </Text>
-          </View>
-        </TouchableOpacity>
-        </View>     
-    )}
+        </View>
+            <FlatList
+              data={docData}
+              renderItem={(itemData) => {
+                if (
+                  itemData.item.category.toUpperCase() ===
+                  route.params.title.toUpperCase()
+                ) {
+                  return (
+                    <View style= {styles.cardsWrapper}>
+                    <TouchableOpacity style={styles.card} 
+                    onPress={() =>
+                        navigation.push("DocDetails", { doc: itemData.item })
+                      }>
+                      <View style={styles.cardImgWrapper}>
+                      <Avatar.Image
+                        source={require('../asset/image.jpg')}
+                        style={styles.cardImg}
+                          size= {100}
+                        />
+                      </View>
+                      <View style={styles.cardInfo}>
+                        <Text style={styles.cardTitle}>Dr. {itemData.item.name}</Text>
+                        <Text style={styles.cardDetails}>
+                          Specialty: {itemData.item.category}{"\n"}
+                          Experince: {itemData.item.experience}
+                        </Text>
+                      </View>
+                    </TouchableOpacity>
+                    </View>     
+            );
+          }
+        }}
+        keyExtractor={(itemData, index) => itemData.id}
       />
 </View>
   );
@@ -95,5 +146,26 @@ const styles = StyleSheet.create({
   cardDetails: {
     fontSize: 15,
     color: '#444',
+  },
+  searchView: {
+    // flex: 0.7,
+    width: "91%",
+    alignSelf: 'center',
+    flexDirection: "row",
+    alignItems: "center",
+    paddingHorizontal: 10,
+    height: 50,
+    marginTop: Platform.OS == "android" ? 10 : 10,
+    borderRadius: 15,
+    backgroundColor: "white",
+    paddingRight: 15,
+    shadowColor: "rgba(0,0,0,1)",
+    shadowOffset: {
+      width: 1,
+      height: 1,
+    },
+    elevation: 5,
+    shadowOpacity: 0.16,
+    shadowRadius: 10,
   },
 });

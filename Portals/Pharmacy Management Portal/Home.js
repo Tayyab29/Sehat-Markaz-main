@@ -104,7 +104,7 @@ const Home = ({navigation}) => {
                     </TouchableOpacity>
 
                     <TouchableOpacity 
-                        // onPress={()=>navigation.navigate("Pe")}
+                        onPress={()=>navigation.navigate("addMed")}
                         style={{
                             height:150,
                             elevation:2,
@@ -117,7 +117,12 @@ const Home = ({navigation}) => {
                             width:160
                         }}
                     >
-                        <Icon name="bell-o" size= {70} color= '#43ba63'  />
+                        {/* <Icon name="bell-o" size= {70} color= '#43ba63'  /> */}
+                        <Image
+                            source={require('../assets/addmed.png')}
+                            style={{height:70,width:70,}}
+                            tintColor='#43ba63'
+                            />
                         <View style={{
                             flexDirection:"row",
                             paddingTop:10,
@@ -125,7 +130,7 @@ const Home = ({navigation}) => {
                         }}>
                             <Text style={{
                                 fontWeight:"bold"
-                            }}>Notification</Text>
+                            }}>Add Medicine</Text>
                         </View>
                     </TouchableOpacity>
                 </View>
@@ -153,7 +158,7 @@ const Home = ({navigation}) => {
                         }}>
                             <Text style={{
                                 fontWeight:"bold"
-                            }}>Medicine</Text>
+                            }}>Medicines</Text>
                         </View>
                     </TouchableOpacity>
 

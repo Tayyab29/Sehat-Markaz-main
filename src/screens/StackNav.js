@@ -22,6 +22,7 @@ import {
   NotificationsTab,
   DocProfile,
 } from "./User";
+import MainCalender from "./MainCalender";
 import MyAppoint from "./myappoint";
 import DocDetails from "./Doctor/DocDetails";
 import Schedule from "./Doctor/Schedule";
@@ -67,6 +68,7 @@ import ViewMed from "../../Portals/Pharmacy Management Portal/ViewMed";
 import AddMed from "../../Portals/Pharmacy Management Portal/addMed";
 import PharMedDetail from "../../Portals/Pharmacy Management Portal/PharMedDetail";
 import UpdateMed from "../../Portals/Pharmacy Management Portal/UpdateMed";
+import AddMedStore from "../../Portals/Pharmacy Management Portal/addMedStore";
 
 //For Blood Donor Portal
 import StartBloodDonorPortal from "../../Portals/Blood Donor Portal/start";
@@ -115,7 +117,13 @@ import EditDocProfile from "../../Portals/Doctor Management Portal/EditDocProfil
 import PendingOrder from "../../Portals/Pharmacy Management Portal/PendingOrder";
 import BuyerDetail from "../../Portals/Pharmacy Management Portal/BuyerDetail";
 import CheckNotification from "./CheckNotification";
-import Multi from "./MultiSelect";
+import AddPrescriptionNote from "../../Portals/Doctor Management Portal/AddPrescriptionNote";
+import AddPrescriptionMed from "../../Portals/Doctor Management Portal/AddPrescriptionMed";
+import BookedAppoint from "../../Portals/Doctor Management Portal/BookedAppoint";
+
+
+
+
 
 
 
@@ -143,11 +151,6 @@ const StackNav = ({ navigation }) => {
             },
           }}
         >
-          <Stack.Screen
-              name="Multi"
-              component={Multi}
-              options={{ header: () => null }}
-            />
           <Stack.Screen
               name="CheckNotification"
               component={CheckNotification}
@@ -258,6 +261,11 @@ const StackNav = ({ navigation }) => {
                   fontWeight: "bold",
                 },
               }}
+            />
+            <Stack.Screen
+              name="MainCalender"
+              component={MainCalender}
+              options={{ header: () => null }}
             />
             <Stack.Screen
               name="Ambulance"
@@ -511,6 +519,11 @@ const StackNav = ({ navigation }) => {
               component={BuyerDetail}
               options={{ title: 'Order Detail', headerShown: true }}
             />
+            <Stack.Screen
+              name="AddMedStore"
+              component={AddMedStore}
+              options={{title: 'Store Medicine' }}
+            />
           </Stack.Group>
 
           <Stack.Group>
@@ -673,7 +686,15 @@ const StackNav = ({ navigation }) => {
               name="DocAppoint"
               component={DocAppoint}
               options={{
-                title: 'Appointments',
+                title: 'Pending Appointments',
+                headerShown: true,
+              }}
+            />
+            <Stack.Screen
+              name="BookedAppoint"
+              component={BookedAppoint}
+              options={{
+                title: 'Booked Appointments',
                 headerShown: true,
               }}
             />
@@ -686,6 +707,16 @@ const StackNav = ({ navigation }) => {
               name="EditDocProfile"
               component={EditDocProfile}
               options={{ headerShown: true }}
+            />
+            <Stack.Screen
+              name="AddPrescriptionNote"
+              component={AddPrescriptionNote}
+              options={{ title: 'Prescription', headerShown: true }}
+            />
+            <Stack.Screen
+              name="AddPrescriptionMed"
+              component={AddPrescriptionMed}
+              options={{ title: 'Prescription', headerShown: true }}
             />
           </Stack.Group>
         </Stack.Navigator>

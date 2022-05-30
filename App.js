@@ -13,10 +13,6 @@ export default function App() {
   return (
     <Provider store={store}>
       <StackNav/>
-      {/* <NavigationContainer>
-      //   <StatusBar barStyle='dark-content' backgroundColor={'white'}/> 
-      // <StackNav/>
-      //  </NavigationContainer> */}
     </Provider>
   );
 }

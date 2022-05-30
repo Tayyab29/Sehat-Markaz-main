@@ -51,7 +51,7 @@ const meds = [
     },
     {
       id: 6,
-      name: 'Sitaglu Met',
+      name: 'Sita Met',
       price: '50.99',
       quantity: '3',
       like: false,

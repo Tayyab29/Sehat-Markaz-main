@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {
   View,
   Text,
@@ -6,13 +6,40 @@ import {
   Image,
   Linking,
   TouchableOpacity,
-  ScrollView
+  ScrollView,
+  Platform
 } from "react-native";
 import { Entypo } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
 import { Avatar } from 'react-native-paper';
+import DateTimePicker from '@react-native-community/datetimepicker';
+
 
 export default function BookDoc({ navigation, route }) {
+  const [date, setDate] = useState(new Date());
+  const [mode, setMode] = useState('date');
+  const [show, setShow] = useState(false);
+  const [text, setText] = useState("");
+  const [times,setTimes] = useState('');
+
+  const onChange = (event, selectedDate) => {
+    const currentDate = selectedDate || date;
+    setShow (Platform.OS === 'ios')
+    setDate(currentDate);
+
+    let tempDate = new Date(currentDate);
+    let fDate = tempDate.getDate() + '/' + (tempDate.getMonth() + 1) + '/' + (tempDate.getFullYear());
+    let fTime = 'Time: ' + tempDate.getHours() + ':' + tempDate.getMinutes();
+    setText (fDate )
+    setTimes(fTime)
+  }
+  
+
+
+  const showMode = (currentMode) =>{
+    setShow(true);
+    setMode(currentMode);
+  }
   const other2 = route.params.data;
   console.log(other2)
    return(
@@ -40,17 +67,45 @@ export default function BookDoc({ navigation, route }) {
 
           <View style = {styles.timesdate}>
               <Text style = {{fontSize: 16, fontWeight: 'bold'}}>Pick a Date</Text>
+              <TouchableOpacity style= {styles.DTcons} mode="contained"  
+                onPress = {() =>showMode('date')}>
+                <FontAwesome name='calendar' color="#ffff" style= {styles.icon} size={20} />
+                <Text style={styles.DTbtnTxt}> Select a Date</Text> 
+                <FontAwesome name='angle-down' color="#ffff" style= {styles.dicon} size={20} />
+              </TouchableOpacity>
           </View>
 
           <View style = {styles.timeslot}>
-              <Text style = {{fontSize: 16, fontWeight: 'bold'}}>Pick a Time Slot</Text>
+              <Text style = {{fontSize: 16, fontWeight: 'bold'}}>Pick a Time </Text>
+              <TouchableOpacity style= {styles.DTcons} mode="contained"  
+                onPress = {() =>showMode('time')}>
+                <FontAwesome name='clock-o' color="#ffff" style= {styles.icon} size={20} />
+                <Text style={styles.DTbtnTxt}> Select a Time</Text> 
+                <FontAwesome name='angle-down' color="#ffff" style= {styles.dicon} size={20} />
+              </TouchableOpacity>
               <TouchableOpacity>
 
               </TouchableOpacity>
           </View>
+          {show && (
+            <DateTimePicker
+              testID="dateTimePicker"
+              value={date}
+              mode = {mode}
+              display = 'default'
+              onChange={onChange}
+              maximumDate={new Date(2022, 6, 20)}
+              minimumDate={new Date()}
+              minuteInterval={20}
+            />
+          )}
           </ScrollView>
         
           <View style={{position: 'relative', left: 0, right: 0, bottom: 0}}>
+          <View style = {{flexDirection:'row', justifyContent: 'space-around', backgroundColor: '#e6eaed', borderRadius:20}}>
+            <Text style = {{fontSize: 16, fontWeight: 'bold'}}>{text}</Text>
+            <Text style = {{fontSize: 16, fontWeight: 'bold'}}>{times}</Text>
+          </View>
             <TouchableOpacity style= {styles.cons} mode="contained" 
                 onPress={() => {(navigation.push('Userdetails'))} }>
                 <FontAwesome name='calendar' color="#ffff" style= {styles.icon} size={22} />
@@ -126,7 +181,8 @@ const styles = StyleSheet.create({
       timesdate: {
           padding: 10,
           borderBottomColor: '#000',
-          borderBottomWidth: 0.7
+          borderBottomWidth: 0.7, 
+          marginBottom: 5,
       },
       timeslot: {
         padding: 10,
@@ -147,5 +203,23 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: 'bold',
         marginLeft:10,
+      },
+      DTcons: {
+        backgroundColor: '#a3c0d6',
+        width: '63%',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        borderRadius: 10,
+        padding: 10,
+        marginTop:5
+      },
+      DTbtnTxt:{
+        color: 'white',
+        fontSize: 16,
+        fontWeight: 'bold',
+        marginLeft:8,
+      },
+      dicon: {
+        marginLeft:8
       }
 })

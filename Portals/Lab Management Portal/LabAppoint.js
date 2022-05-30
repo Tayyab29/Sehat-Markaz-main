@@ -8,7 +8,6 @@ import {
   FlatList
 } from 'react-native';
 import users from "../../src/screens/Doctor/DoctorData";
-//import SearchBar from '../components/SearchBar'
 import { Avatar } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import EIcon from 'react-native-vector-icons/Entypo';
@@ -20,8 +19,9 @@ export default function LabAppoint({ navigation }) {
             data = {users}
             renderItem = {(itemData) =>(
         <View style={styles.card} >
-            <View style = {{flexDirection: 'row',}}>
+            <View style = {{flexDirection: 'column'}} >
             <View style={styles.cardImgWrapper}>
+                <View style = {{padding: 5}}>
             <Avatar.Image
                 source={require('../../src/screens/asset/image.jpg')}
                 style={styles.cardImg}
@@ -34,7 +34,7 @@ export default function LabAppoint({ navigation }) {
                     {itemData.item.category}{"\n"}
                 {/* Experince: {itemData.item.experience} */}
                 </Text>
-            </View>
+                </View>
             </View>
             <View 
               style = {{flexDirection: 'row',
@@ -54,7 +54,7 @@ export default function LabAppoint({ navigation }) {
                 <EIcon name="dot-single" size={19} color="#f5a849" />
                 <Text style = {{marginLeft: 0, fontSize:15,fontWeight:'bold', color: '#3c3c3d'}}> Unconfirmed </Text>
             </View>
-            </View>
+            </View> 
             <View style ={{paddingBottom: 10,
                            paddingTop: 5, 
                            flexDirection: 'row',
@@ -72,6 +72,7 @@ export default function LabAppoint({ navigation }) {
                 <Text style={styles.btnTxt}> Accept</Text>
             </TouchableOpacity>
             </View>
+            </View>
         </View> 
   
     )}
@@ -79,6 +80,9 @@ export default function LabAppoint({ navigation }) {
 </View>
   );
 }
+   
+
+ 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -91,9 +95,9 @@ const styles = StyleSheet.create({
   card: {
     width: '90%',
     alignSelf: 'center',
-    height: 90,
+    height: 150,
     marginTop: 15,
-    marginBottom: 85,
+    marginBottom: 15,
     //marginVertical: 25,
     borderTopLeftRadius:6, 
     borderTopRightRadius:6 ,
@@ -101,28 +105,17 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffff'
   },
   cardImgWrapper: {
-    flex: 1,
-  },
-  cardImg: {
-    height: '100%',
-    width: '100%',
-    padding:4,
-    alignSelf: 'center',
-    backgroundColor: '#fff',
-    borderRightWidth:0,
-    borderRadius: 8,
-    borderBottomRightRadius: 0,
-    borderTopRightRadius: 0,
+    flexDirection: 'row'
   },
   cardInfo: {
     flex: 2,
     padding: 10,
     borderLeftWidth: 0,
     paddingTop:10,
+    marginTop: 10,
     justifyContent:'center',
     borderBottomRightRadius: 8,
     borderTopRightRadius: 8,
-    // backgroundColor: '#fff',
   },
   cardTitle: {
     fontWeight: 'bold',

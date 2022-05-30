@@ -9,14 +9,14 @@ const users = [
     {
         id : '02',
         name : 'Usaman Yousaf',
-        category : 'Nephrologist',
+        category : 'Skin Specialist',
         experience : '12 years',
         description : 'A licensed health professional who maintains and restores human health through the practice of medicine'
     },
     {
         id : '03',
         name : 'Bilal Ahmed',
-        category : 'Physicist',
+        category : 'Psychiatrist',
         experience : '2 years',
         description : 'A licensed health professional who maintains and restores human health through the practice of medicine'
     },
@@ -32,7 +32,7 @@ const users = [
         name : 'Usman',
         category : 'Surgeon',
         experience : '4 years',
-        description : 'A licensed health professional who maintains and restores human health through the practice of medicine'
+        description : 'Post Gradute ,GIFT University A licensed health professional.'
     },
     {
         id : '06',
@@ -47,7 +47,14 @@ const users = [
         category : 'Gynocalogist',
         experience : '14 years',
         description : 'A licensed health professional who maintains and restores human health through the practice of medicine'
-    }
+    },    {
+        id : '08',
+        name : 'Naveed Ahmed Khan',
+        category : 'Gynocalogist',
+        experience : '10 years',
+        description : 'A licensed health professional who maintains and restores human health through the practice of medicine'
+    },
+    
 
 ]
 

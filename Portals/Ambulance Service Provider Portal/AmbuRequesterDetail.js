@@ -67,7 +67,7 @@ export default function AmbuRequesterDetail({ route, navigation }) {
                 onPress={() => {''} }>
                 <Text style={styles.btnTxt}> Reject</Text>
             </TouchableOpacity>
-            <TouchableOpacity style= {styles.cons}
+            <TouchableOpacity style= {styles.Acons}
                 onPress={() => {''} }>
                 <Text style={styles.btnTxt}> Accept</Text>
             </TouchableOpacity>
@@ -115,6 +115,14 @@ const styles = StyleSheet.create({
   },
   cons: {
     backgroundColor: '#eb3838',
+    width: '35%',
+    justifyContent: 'center',
+    alignSelf: 'center',
+    borderRadius: 10,
+    padding: 7
+  },
+  Acons: {
+    backgroundColor: '#18c947',
     width: '35%',
     justifyContent: 'center',
     alignSelf: 'center',

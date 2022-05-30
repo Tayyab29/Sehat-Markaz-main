@@ -61,23 +61,6 @@ export default function BuyerDetail({ route, navigation }) {
     )}
       />
       </View>
-    <View style ={{paddingBottom: 10,
-            paddingTop: 5, 
-            flexDirection: 'row',
-            justifyContent: 'space-around', 
-            backgroundColor:'white',
-            borderBottomLeftRadius:6, 
-            borderBottomRightRadius:6 
-            }}>
-            <TouchableOpacity style= {styles.cons}  
-                onPress={() => {''} }>
-                <Text style={styles.btnTxt}> Reject</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style= {styles.cons}
-                onPress={() => {''} }>
-                <Text style={styles.btnTxt}> Accept</Text>
-            </TouchableOpacity>
-            </View>
     </ScrollView>
     <View style={{position: 'relative', left: 0, right: 0, bottom: 0}}>
             <View style ={{paddingBottom: 10,

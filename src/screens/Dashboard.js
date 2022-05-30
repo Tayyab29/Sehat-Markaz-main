@@ -112,8 +112,8 @@ const Dashboard = ({navigation}) => {
           </View>
           <Text style={styles.categoryBtnTxt}>Blood Donor</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.categoryBtn} 
-        onPress={() => ('')}>
+        <TouchableOpacity style={styles.categoryBtn} onPress={() =>
+            navigation.navigate('MainCalender', {title: ''})}>
           <View style={styles.categoryIcon}>
           <Icon name="notes-medical" size={35} color="#57D4EB" />
           </View>

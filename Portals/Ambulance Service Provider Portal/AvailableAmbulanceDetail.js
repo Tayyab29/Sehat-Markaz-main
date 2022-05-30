@@ -28,7 +28,7 @@ export default function AvailableAmbulanceDetail({ route, navigation }) {
           <Text style={styles.head}>Ambulance Features</Text>
           <Text style={styles.sub}>{data.description}</Text>
         </View>
-        <Text style={styles.head}>Location</Text>
+        <Text style={styles.head}>Picture</Text>
         <View style={styles.sliderContainer}>
         <Swiper
           autoplay

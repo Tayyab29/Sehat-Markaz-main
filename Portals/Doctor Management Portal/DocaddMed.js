@@ -88,12 +88,10 @@ const DocaddMed = ( {navigation}) => {
 
   return (
     <View style= {styles.container}>
-      {/* <StatusBar backgroundColor="skyblue" translucent={true}/> */}
-      {/* <Logo /> */}
       <ScrollView style= {styles.head}
       showsVerticalScrollIndicator={false}>
       <View style= {styles.headcon}>
-      <Text style = {{color: '#18b4f5', fontSize:22,fontWeight: 'bold'}}>Add Medicine</Text>
+      <Text style = {{color: '#18b4f5', fontSize:22,fontWeight: 'bold'}}>Add New Medicine</Text>
 
       <TextInput
         label="Name"

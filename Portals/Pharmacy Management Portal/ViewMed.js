@@ -109,7 +109,7 @@ const ViewMed = ({navigation, route}) => {
         </View>
         <View style={style.sortBtn}>
         <TouchableOpacity
-            onPress={()=>navigation.navigate("addMed")} >
+            onPress={()=>navigation.navigate("AddMedStore")} >
           {/* <Icon name="sort" size={30} color={'white'} /> */}
           <Image
             source={require('../assets/addmed.png')}
